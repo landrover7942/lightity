@@ -47,7 +47,7 @@
         <version>2.1</version>
         <configuration>
           <goals>install</goals>
-          <arguments>-DperformRelease</arguments>
+          <arguments>-DperformRelease -Dmaven.test.skip</arguments>
         </configuration>
       </plugin>
       <plugin>
