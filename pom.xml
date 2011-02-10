@@ -22,13 +22,6 @@
     <url>http://code.google.com/p/lightity/source/browse/</url>
   </scm>
 
-  <distributionManagement>
-    <repository>
-      <id>maven-repos</id>
-      <url>scm:svn:https://lightity.googlecode.com/svn/repos/</url>
-    </repository>
-  </distributionManagement>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
