@@ -2,11 +2,11 @@ package com.google.code.lightity.filter;
 
 import com.google.code.lightity.Entity;
 
-final class NotOperator implements Operator {
+final class NotFilter implements Filter {
 
-    private final Operator operator;
+    private final Filter operator;
 
-    public NotOperator(final Operator operator) {
+    public NotFilter(final Filter operator) {
         this.operator = operator;
         if (this.operator == null) {
             throw new NullPointerException();

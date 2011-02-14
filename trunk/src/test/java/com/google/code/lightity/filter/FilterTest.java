@@ -12,9 +12,9 @@ import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityFactory;
 import com.google.code.lightity.EntityProperty;
 import com.google.code.lightity.EntityPropertyFactory;
-import com.google.code.lightity.filter.Operators;
+import com.google.code.lightity.filter.Filters;
 
-public class OperatorTest {
+public class FilterTest {
 
     interface Person {
         EntityProperty<String> NAME = EntityPropertyFactory.create("name",
@@ -43,7 +43,7 @@ public class OperatorTest {
     @Test
     public void equal() {
         for (final Entity person : persons) {
-            if (Operators.equal(Person.NAME, "c").apply(person)) {
+            if (Filters.equal(Person.NAME, "c").apply(person)) {
                 filtered.add(person);
             }
         }
@@ -55,7 +55,7 @@ public class OperatorTest {
     @Test
     public void greaterThan() {
         for (final Entity person : persons) {
-            if (Operators.greaterThan(Person.AGE, 10).apply(person)) {
+            if (Filters.greaterThan(Person.AGE, 10).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -68,7 +68,7 @@ public class OperatorTest {
     @Test
     public void greaterThanOrEqual() {
         for (final Entity person : persons) {
-            if (Operators.greaterThanOrEqual(Person.AGE, 10).apply(person)) {
+            if (Filters.greaterThanOrEqual(Person.AGE, 10).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -82,7 +82,7 @@ public class OperatorTest {
     @Test
     public void lessThan() {
         for (final Entity person : persons) {
-            if (Operators.lessThan(Person.AGE, 20).apply(person)) {
+            if (Filters.lessThan(Person.AGE, 20).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -94,7 +94,7 @@ public class OperatorTest {
     @Test
     public void lessThanOrEqual() {
         for (final Entity person : persons) {
-            if (Operators.lessThanOrEqual(Person.AGE, 20).apply(person)) {
+            if (Filters.lessThanOrEqual(Person.AGE, 20).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -106,7 +106,7 @@ public class OperatorTest {
     @Test
     public void not() {
         for (final Entity person : persons) {
-            if (Operators.not(Operators.equal(Person.NAME, "c")).apply(person)) {
+            if (Filters.not(Filters.equal(Person.NAME, "c")).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -119,8 +119,8 @@ public class OperatorTest {
     @Test
     public void and() {
         for (final Entity person : persons) {
-            if (Operators.and(Operators.equal(Person.NAME, "a"),
-                    Operators.greaterThan(Person.AGE, 20)).apply(person)) {
+            if (Filters.and(Filters.equal(Person.NAME, "a"),
+                    Filters.greaterThan(Person.AGE, 20)).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -132,8 +132,8 @@ public class OperatorTest {
     @Test
     public void or() {
         for (final Entity person : persons) {
-            if (Operators.or(Operators.equal(Person.AGE, 20),
-                    Operators.greaterThan(Person.AGE, 20)).apply(person)) {
+            if (Filters.or(Filters.equal(Person.AGE, 20),
+                    Filters.greaterThan(Person.AGE, 20)).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -145,7 +145,7 @@ public class OperatorTest {
     @Test
     public void isNull() {
         for (final Entity person : persons) {
-            if (Operators.isNull(Person.AGE).apply(person)) {
+            if (Filters.isNull(Person.AGE).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -155,7 +155,7 @@ public class OperatorTest {
     @Test
     public void isNotNull() {
         for (final Entity person : persons) {
-            if (Operators.isNotNull(Person.AGE).apply(person)) {
+            if (Filters.isNotNull(Person.AGE).apply(person)) {
                 filtered.add(person);
             }
         }
@@ -165,7 +165,7 @@ public class OperatorTest {
     @Test
     public void in() {
         for (final Entity person : persons) {
-            if (Operators.in(Person.NAME, "a", "c").apply(person)) {
+            if (Filters.in(Person.NAME, "a", "c").apply(person)) {
                 filtered.add(person);
             }
         }
