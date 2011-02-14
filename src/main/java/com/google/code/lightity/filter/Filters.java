@@ -7,6 +7,8 @@ import java.util.List;
 import com.google.code.lightity.EntityProperty;
 
 /**
+ * Filters.
+ * 
  * @since 0.3
  * @author Koba, Masafumi
  */
