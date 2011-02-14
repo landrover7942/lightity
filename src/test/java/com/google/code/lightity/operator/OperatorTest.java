@@ -140,4 +140,24 @@ public class OperatorTest {
         assertEquals("a", filtered.get(0).get(Person.NAME));
         assertEquals("b", filtered.get(1).get(Person.NAME));
     }
+
+    @Test
+    public void isNull() {
+        for (final Entity person : persons) {
+            if (Operators.isNull(Person.AGE).apply(person)) {
+                filtered.add(person);
+            }
+        }
+        assertEquals(0, filtered.size());
+    }
+
+    @Test
+    public void isNotNull() {
+        for (final Entity person : persons) {
+            if (Operators.isNotNull(Person.AGE).apply(person)) {
+                filtered.add(person);
+            }
+        }
+        assertEquals(persons, filtered);
+    }
 }
