@@ -3,14 +3,14 @@ package com.google.code.lightity.filter;
 import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;
 
-final class GreaterThanOperator<T extends Comparable<T>> extends
-        BinaryOperator<T> {
+final class GreaterThanFilter<T extends Comparable<T>> extends
+        SimpleFilter<T> {
 
-    private final EqualOperator<T> equalOperator;
+    private final EqualFilter<T> equalOperator;
 
-    public GreaterThanOperator(final EntityProperty<T> property, final T operand) {
+    public GreaterThanFilter(final EntityProperty<T> property, final T operand) {
         super(property, operand);
-        this.equalOperator = new EqualOperator<T>(property, operand);
+        this.equalOperator = new EqualFilter<T>(property, operand);
     }
 
     @Override

@@ -2,15 +2,15 @@ package com.google.code.lightity.filter;
 
 import com.google.code.lightity.Entity;
 
-final class OrOperator extends CompositeOperator {
+final class OrFilter extends CompositeFilter {
 
-    public OrOperator(final Iterable<? extends Operator> components) {
+    public OrFilter(final Iterable<? extends Filter> components) {
         super(components);
     }
 
     @Override
     public boolean apply(final Entity entity) {
-        for (final Operator operator : components) {
+        for (final Filter operator : components) {
             if (operator.apply(entity)) {
                 return true;
             }

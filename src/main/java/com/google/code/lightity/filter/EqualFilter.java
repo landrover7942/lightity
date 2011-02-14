@@ -3,9 +3,9 @@ package com.google.code.lightity.filter;
 import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;
 
-final class EqualOperator<T> extends BinaryOperator<T> {
+final class EqualFilter<T> extends SimpleFilter<T> {
 
-    public EqualOperator(final EntityProperty<T> property, final T operand) {
+    public EqualFilter(final EntityProperty<T> property, final T operand) {
         super(property, operand);
     }
 
