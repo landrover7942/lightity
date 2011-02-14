@@ -6,6 +6,9 @@ import java.util.Map;
 
 public final class EntityFactory {
 
+    /**
+     * @return {@link Entity}'s default implementation
+     */
     public static Entity create() {
         return new EntityImpl();
     }
