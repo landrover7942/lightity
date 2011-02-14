@@ -15,8 +15,5 @@ abstract class SingleOperator<T> implements Operator {
         if (this.property == null) {
             throw new NullPointerException();
         }
-        if (this.operand == null) {
-            throw new NullPointerException();
-        }
     }
 }

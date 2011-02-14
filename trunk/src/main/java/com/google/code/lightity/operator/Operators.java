@@ -55,6 +55,14 @@ public final class Operators {
         return new OrOperator(operators);
     }
 
+    public static Operator isNull(final EntityProperty<?> property) {
+        return equal(property, null);
+    }
+
+    public static Operator isNotNull(final EntityProperty<?> property) {
+        return not(equal(property, null));
+    }
+
     private Operators() {
         super();
     }
