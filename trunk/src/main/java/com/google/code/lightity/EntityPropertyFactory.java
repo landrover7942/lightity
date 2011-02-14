@@ -2,6 +2,15 @@ package com.google.code.lightity;
 
 public final class EntityPropertyFactory {
 
+    /**
+     * @param <T>
+     *            a type of {@link EntityProperty}
+     * @param name
+     *            a name of {@link EntityProperty}
+     * @param type
+     *            a class of {@link EntityProperty}
+     * @return {@link EntityProperty}'s default implementation
+     */
     public static <T> EntityProperty<T> create(final String name,
             final Class<T> type) {
         return new PropertyImpl<T>(name, type);
