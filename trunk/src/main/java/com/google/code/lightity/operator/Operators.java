@@ -1,6 +1,8 @@
 package com.google.code.lightity.operator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.code.lightity.EntityProperty;
 
@@ -61,6 +63,20 @@ public final class Operators {
 
     public static Operator isNotNull(final EntityProperty<?> property) {
         return not(equal(property, null));
+    }
+
+    public static <T> Operator in(final EntityProperty<T> property,
+            final T... operand) {
+        return in(property, Arrays.asList(operand));
+    }
+
+    public static <T> Operator in(final EntityProperty<T> property,
+            final Iterable<? extends T> operand) {
+        final List<Operator> operators = new ArrayList<Operator>();
+        for (final T element : operand) {
+            operators.add(equal(property, element));
+        }
+        return or(operators);
     }
 
     private Operators() {
