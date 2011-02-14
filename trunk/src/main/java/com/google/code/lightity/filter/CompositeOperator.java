@@ -1,4 +1,4 @@
-package com.google.code.lightity.operator;
+package com.google.code.lightity.filter;
 
 abstract class CompositeOperator implements Operator {
 

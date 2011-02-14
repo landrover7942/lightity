@@ -1,4 +1,4 @@
-package com.google.code.lightity.operator;
+package com.google.code.lightity.filter;
 
 import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;

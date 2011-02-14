@@ -1,4 +1,4 @@
-package com.google.code.lightity.operator;
+package com.google.code.lightity.filter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,6 +12,7 @@ import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityFactory;
 import com.google.code.lightity.EntityProperty;
 import com.google.code.lightity.EntityPropertyFactory;
+import com.google.code.lightity.filter.Operators;
 
 public class OperatorTest {
 
