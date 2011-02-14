@@ -1,16 +1,33 @@
 package com.google.code.lightity;
 
+/**
+ * Thrown to indicate that a given property has not been found.
+ * 
+ * @since 0.2
+ * @author Koba, Masafumi
+ */
 @SuppressWarnings("serial")
 public final class NoSuchEntityPropertyException extends RuntimeException {
 
     private EntityProperty<?> property;
 
+    /**
+     * Constructor.
+     * 
+     * @param property
+     *            a property has not been found
+     */
     public NoSuchEntityPropertyException(final EntityProperty<?> property) {
         super(String.format("No such property <%s:%s>", property.getName(),
                 property.getType()));
         this.property = property;
     }
 
+    /**
+     * Get property.
+     * 
+     * @return property
+     */
     public EntityProperty<?> getProperty() {
         return property;
     }
