@@ -1,6 +1,6 @@
 package com.google.code.lightity;
 
-public class EntityPropertyFactory {
+public final class EntityPropertyFactory {
 
     public static <T> EntityProperty<T> create(final String name,
             final Class<T> type) {
@@ -27,10 +27,12 @@ public class EntityPropertyFactory {
             }
         }
 
+        @Override
         public String getName() {
             return name;
         }
 
+        @Override
         public Class<T> getType() {
             return type;
         }

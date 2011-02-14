@@ -5,7 +5,7 @@
                  classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
                  classpath="${plugin_classpath}" />
         <findbugs classpath="${plugin_classpath}"
-                  auxClasspath="${compile_classpath}"
+                  auxClasspath="${plugin_classpath}"
                   pluginList=""
                   output="html"
                   outputFile="${project.build.directory}/findbugs.html"
