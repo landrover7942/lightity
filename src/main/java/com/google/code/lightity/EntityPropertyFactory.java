@@ -1,15 +1,26 @@
 package com.google.code.lightity;
 
+/**
+ * {@link EntityProperty}'s factory.
+ * 
+ * @since 0.1
+ * @author Koba, Masafumi
+ */
 public final class EntityPropertyFactory {
 
     /**
+     * Create a property.
+     * <p>
+     * The property to be created is {@link EntityProperty}'s default
+     * implementation.
+     * 
      * @param <T>
-     *            a type of {@link EntityProperty}
+     *            new property's type
      * @param name
-     *            a name of {@link EntityProperty}
+     *            new property's name
      * @param type
-     *            a class of {@link EntityProperty}
-     * @return {@link EntityProperty}'s default implementation
+     *            new property's class
+     * @return new property
      */
     public static <T> EntityProperty<T> create(final String name,
             final Class<T> type) {
