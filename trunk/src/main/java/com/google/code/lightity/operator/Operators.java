@@ -20,6 +20,21 @@ public final class Operators {
         return new GreaterThanOperator<T>(property, operand);
     }
 
+    public static <T extends Comparable<T>> Operator greaterThanOrEqual(
+            final EntityProperty<T> property, final T operand) {
+        return or(equal(property, operand), greaterThan(property, operand));
+    }
+
+    public static <T extends Comparable<T>> Operator lessThan(
+            final EntityProperty<T> property, final T operand) {
+        return not(greaterThanOrEqual(property, operand));
+    }
+
+    public static <T extends Comparable<T>> Operator lessThanOrEqual(
+            final EntityProperty<T> property, final T operand) {
+        return not(greaterThan(property, operand));
+    }
+
     public static Operator not(final Operator operator) {
         return new NotOperator(operator);
     }
@@ -43,4 +58,5 @@ public final class Operators {
     private Operators() {
         super();
     }
+
 }
