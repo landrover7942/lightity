@@ -6,6 +6,8 @@
   <artifactId>lightity</artifactId>
   <version>0.2-SNAPSHOT</version>
   <name>Lightity</name>
+  <url>http://lightity.googlecode.com/</url>
+  <inceptionYear>2011</inceptionYear>
 
   <licenses>
     <license>
