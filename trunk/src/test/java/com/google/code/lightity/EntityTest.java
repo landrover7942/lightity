@@ -45,6 +45,10 @@ public class EntityTest {
         System.out.println(person);
         assertEquals("abc", person.get(Person.NAME));
         assertEquals(10, person.get(Person.AGE).intValue());
+
+        for (final EntityProperty<?> property : person) {
+            System.out.println(property);
+        }
     }
 
 }
