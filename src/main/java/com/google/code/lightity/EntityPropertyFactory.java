@@ -66,4 +66,8 @@ public final class EntityPropertyFactory {
             super(String.format(format, args));
         }
     }
+
+    private EntityPropertyFactory() {
+        super();
+    }
 }
