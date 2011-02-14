@@ -4,7 +4,7 @@ import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;
 
 final class GreaterThanOperator<T extends Comparable<T>> extends
-        SingleOperator<T> {
+        BinaryOperator<T> {
 
     private final EqualOperator<T> equalOperator;
 

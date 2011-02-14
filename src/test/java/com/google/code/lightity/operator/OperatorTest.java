@@ -160,4 +160,16 @@ public class OperatorTest {
         }
         assertEquals(persons, filtered);
     }
+
+    @Test
+    public void in() {
+        for (final Entity person : persons) {
+            if (Operators.in(Person.NAME, "a", "c").apply(person)) {
+                filtered.add(person);
+            }
+        }
+        assertEquals(2, filtered.size());
+        assertEquals("a", filtered.get(0).get(Person.NAME));
+        assertEquals("c", filtered.get(1).get(Person.NAME));
+    }
 }

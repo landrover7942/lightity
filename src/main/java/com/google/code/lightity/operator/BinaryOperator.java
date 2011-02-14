@@ -2,13 +2,13 @@ package com.google.code.lightity.operator;
 
 import com.google.code.lightity.EntityProperty;
 
-abstract class SingleOperator<T> implements Operator {
+abstract class BinaryOperator<T> implements Operator {
 
     protected final EntityProperty<T> property;
 
     protected final T operand;
 
-    protected SingleOperator(final EntityProperty<T> property,
+    protected BinaryOperator(final EntityProperty<T> property,
             final T operand) {
         this.property = property;
         this.operand = operand;

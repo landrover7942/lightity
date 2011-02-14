@@ -3,7 +3,7 @@ package com.google.code.lightity.operator;
 import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;
 
-final class EqualOperator<T> extends SingleOperator<T> {
+final class EqualOperator<T> extends BinaryOperator<T> {
 
     public EqualOperator(final EntityProperty<T> property, final T operand) {
         super(property, operand);
