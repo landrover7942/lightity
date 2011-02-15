@@ -1,6 +1,9 @@
 package com.google.code.lightity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +12,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.code.lightity.EntityList.EachFunction;
-import com.google.code.lightity.filter.Filter;
+import com.google.code.lightity.EntityList.Each;
+import com.google.code.lightity.EntityList.Filter;
 
 public class EntityListTest {
 
@@ -39,9 +42,9 @@ public class EntityListTest {
     @Test
     public void each() {
         final List<Entity> pickup = new ArrayList<Entity>();
-        list.each(new EachFunction() {
+        list.each(new Each() {
             @Override
-            public boolean run(final int index, final Entity entity) {
+            public boolean call(final int index, final Entity entity) {
                 if (index % 2 == 0) {
                     pickup.add(entity);
                 }

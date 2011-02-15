@@ -2,8 +2,6 @@ package com.google.code.lightity;
 
 import java.util.List;
 
-import com.google.code.lightity.filter.Filter;
-
 /**
  * Entity list.
  * 
@@ -13,22 +11,38 @@ import com.google.code.lightity.filter.Filter;
 public interface EntityList extends List<Entity> {
 
     /**
-     * 
+     * @see EntityList#each(Each)
      */
-    interface EachFunction {
+    interface Each {
 
         /**
          * @param index
+         *            starts with 0
          * @param entity
          * @return
          */
-        boolean run(int index, Entity entity);
+        boolean call(int index, Entity entity);
+    }
+
+    /**
+     * @see EntityList#filter(Filter)
+     */
+    interface Filter {
+
+        /**
+         * Applies this filter to a given entity.
+         * 
+         * @param entity
+         *            an entity to be applied this filter
+         * @return {@code true} if this filter has been applied successfully
+         */
+        boolean apply(Entity entity);
     }
 
     /**
      * @param function
      */
-    void each(EachFunction function);
+    void each(Each function);
 
     /**
      * @param filter

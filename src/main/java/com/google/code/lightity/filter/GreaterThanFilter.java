@@ -3,8 +3,7 @@ package com.google.code.lightity.filter;
 import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityProperty;
 
-final class GreaterThanFilter<T extends Comparable<T>> extends
-        SimpleFilter<T> {
+final class GreaterThanFilter<T extends Comparable<T>> extends SimpleFilter<T> {
 
     private final EqualFilter<T> equalOperator;
 
