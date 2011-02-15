@@ -19,10 +19,10 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Lightity 0.2 API'
+'Lightity 0.3 API'
 -link
 'http://java.sun.com/javase/6/docs/api'
 -use
 -version
 -windowtitle
-'Lightity 0.2 API'
+'Lightity 0.3 API'
