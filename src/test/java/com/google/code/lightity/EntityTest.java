@@ -9,13 +9,6 @@ import org.junit.Test;
 
 public class EntityTest {
 
-    interface Person {
-        EntityProperty<String> NAME = EntityPropertyFactory.create("name",
-                String.class);
-        EntityProperty<Integer> AGE = EntityPropertyFactory.create("age",
-                Integer.class);
-    }
-
     @Test
     public void sample() throws Exception {
         final Entity person = EntityFactory.create();
