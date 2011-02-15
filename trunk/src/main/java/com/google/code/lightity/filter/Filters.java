@@ -166,19 +166,33 @@ public final class Filters {
     }
 
     /**
+     * Equivalent to:
+     * 
+     * <pre style="margin: 2em;">
+     * equal(property, null)
+     * </pre>
+     * 
      * @param property
-     * @return
+     *            a property
+     * @return a filter
      */
     public static Filter isNull(final EntityProperty<?> property) {
         return equal(property, null);
     }
 
     /**
+     * Equivalent to:
+     * 
+     * <pre style="margin: 2em;">
+     * not(isNull(property))
+     * </pre>
+     * 
      * @param property
-     * @return
+     *            a property
+     * @return a filter
      */
     public static Filter isNotNull(final EntityProperty<?> property) {
-        return not(equal(property, null));
+        return not(isNull(property));
     }
 
     /**
