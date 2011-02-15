@@ -12,7 +12,6 @@ import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityFactory;
 import com.google.code.lightity.EntityProperty;
 import com.google.code.lightity.EntityPropertyFactory;
-import com.google.code.lightity.filter.Filters;
 
 public class FilterTest {
 

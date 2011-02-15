@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.google.code.lightity.EntityList.Filter;
 import com.google.code.lightity.EntityProperty;
 
 /**

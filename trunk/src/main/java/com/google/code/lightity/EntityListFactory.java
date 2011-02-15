@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.google.code.lightity.filter.Filter;
-
 /**
  * @since 0.3
  * @author Koba, Masafumi
@@ -167,9 +165,9 @@ public final class EntityListFactory {
         }
 
         @Override
-        public void each(final EachFunction function) {
+        public void each(final Each function) {
             for (int index = 0, size = size(); index < size; index++) {
-                if (!function.run(index, get(index))) {
+                if (!function.call(index, get(index))) {
                     break;
                 }
             }
