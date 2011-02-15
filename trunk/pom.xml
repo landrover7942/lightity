@@ -4,8 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.code.lightity</groupId>
   <artifactId>lightity</artifactId>
-  <version>0.4-SNAPSHOT</version>
+  <version>0.3.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <name>Lightity</name>
+  <description>Light, simple entity for Java</description>
   <url>http://lightity.googlecode.com/</url>
   <inceptionYear>2011</inceptionYear>
 
@@ -22,6 +24,14 @@
     <developerConnection>scm:svn:https://lightity.googlecode.com/svn/trunk/</developerConnection>
     <url>http://code.google.com/p/lightity/source/browse/</url>
   </scm>
+
+  <developers>
+    <developer>
+      <id>koba</id>
+      <name>Koba, Masafumi</name>
+      <email>10koba01@gmail.com</email>
+    </developer>
+  </developers>
 
   <dependencies>
     <dependency>
