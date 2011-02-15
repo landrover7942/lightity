@@ -27,9 +27,8 @@ public interface EntityList extends List<Entity> {
 
     /**
      * @param function
-     * @return
      */
-    EntityList each(EachFunction function);
+    void each(EachFunction function);
 
     /**
      * @param filter

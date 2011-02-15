@@ -167,13 +167,12 @@ public final class EntityListFactory {
         }
 
         @Override
-        public EntityList each(final EachFunction function) {
+        public void each(final EachFunction function) {
             for (int index = 0, size = size(); index < size; index++) {
                 if (!function.run(index, get(index))) {
                     break;
                 }
             }
-            return this;
         }
 
         @Override
