@@ -11,9 +11,6 @@ final class EqualFilter<T> extends SimpleFilter<T> {
 
     @Override
     public boolean apply(final Entity entity) {
-        if (!entity.exists(property)) {
-            return false;
-        }
         final T get = entity.get(property);
         if (get == operand) {
             return true;
