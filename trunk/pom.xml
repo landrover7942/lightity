@@ -20,9 +20,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:http://lightity.googlecode.com/svn/tags/lightity-0.3-beta-1</connection>
-    <developerConnection>scm:svn:https://lightity.googlecode.com/svn/tags/lightity-0.3-beta-1</developerConnection>
-    <url>http://code.google.com/p/lightity/source/browse/tags/lightity-0.3-beta-1</url>
+    <connection>scm:svn:http://lightity.googlecode.com/svn/trunk/</connection>
+    <developerConnection>scm:svn:https://lightity.googlecode.com/svn/trunk/</developerConnection>
+    <url>http://code.google.com/p/lightity/source/browse/</url>
   </scm>
 
   <developers>
