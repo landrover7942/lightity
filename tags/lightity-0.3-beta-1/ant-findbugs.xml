@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main">
+    <target name="main">
+        <taskdef name="findbugs"
+                 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+                 classpath="${plugin_classpath}" />
+        <findbugs classpath="${plugin_classpath}"
+                  pluginList=""
+                  output="html"
+                  outputFile="${project.build.directory}/findbugs.html"
+                  effort="max"
+                  debug="false">
+            <auxClasspath path="${plugin_classpath}" />
+            <sourcePath path="${project.build.sourceDirectory}" />
+            <class location="${project.build.outputDirectory}" />
+            <systemProperty name="user.language" value="en" />
+        </findbugs>
+    </target>
+</project>
