@@ -79,7 +79,7 @@ public final class Filters {
      * @param property
      *            a property
      * @param operand
-     *            a operand
+     *            an operand
      * @return a filter representing the equality
      */
     public static <T> Filter equal(final EntityProperty<T> property,
@@ -95,7 +95,7 @@ public final class Filters {
      * @param property
      *            a property
      * @param operand
-     *            a operand
+     *            an operand
      * @return a filter representing the inequality
      */
     public static <T extends Comparable<T>> Filter greaterThan(
@@ -116,7 +116,7 @@ public final class Filters {
      * @param property
      *            a property
      * @param operand
-     *            a operand
+     *            an operand
      * @return a filter representing the inequality
      */
     public static <T extends Comparable<T>> Filter greaterThanOrEqual(
@@ -136,7 +136,7 @@ public final class Filters {
      * @param property
      *            a property
      * @param operand
-     *            a operand
+     *            an operand
      * @return a filter representing the inequality
      */
     public static <T extends Comparable<T>> Filter lessThan(
@@ -157,7 +157,7 @@ public final class Filters {
      * @param property
      *            a property
      * @param operand
-     *            a operand
+     *            an operand
      * @return a filter representing the inequality
      */
     public static <T extends Comparable<T>> Filter lessThanOrEqual(
@@ -196,21 +196,16 @@ public final class Filters {
     }
 
     /**
+     * Returns a filter representing to be contained in the given
+     * collection(operand).
+     * 
      * @param <T>
+     *            a type of property and operand
      * @param property
+     *            a property
      * @param operand
-     * @return
-     */
-    public static <T> Filter in(final EntityProperty<T> property,
-            final T... operand) {
-        return in(property, Arrays.asList(operand));
-    }
-
-    /**
-     * @param <T>
-     * @param property
-     * @param operand
-     * @return
+     *            an operand
+     * @return a filter
      */
     public static <T> Filter in(final EntityProperty<T> property,
             final Iterable<? extends T> operand) {
@@ -219,6 +214,18 @@ public final class Filters {
             operators.add(equal(property, element));
         }
         return or(operators);
+    }
+
+    /**
+     * Equivalent to:
+     * 
+     * <pre style="margin: 2em;">
+     * in(property, Arrays.asList(operand))
+     * </pre>
+     */
+    public static <T> Filter in(final EntityProperty<T> property,
+            final T... operand) {
+        return in(property, Arrays.asList(operand));
     }
 
     private Filters() {
