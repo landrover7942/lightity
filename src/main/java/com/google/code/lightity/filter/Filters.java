@@ -16,40 +16,55 @@ import com.google.code.lightity.EntityProperty;
 public final class Filters {
 
     /**
+     * Returns a filter representing the conjunction( {@code &&} ).
+     * 
      * @param filters
-     * @return
-     */
-    public static Filter and(final Filter... filters) {
-        return and(Arrays.asList(filters));
-    }
-
-    /**
-     * @param filters
-     * @return
+     *            filters to be operated
+     * @return a filter representing the conjunction
      */
     public static Filter and(final Iterable<? extends Filter> filters) {
         return new AndFilter(filters);
     }
 
     /**
-     * @param filters
-     * @return
+     * Equivalent to:
+     * 
+     * <pre style="margin: 2em;">
+     * and(Arrays.asList(filters))
+     * </pre>
      */
-    public static Filter or(final Filter... filters) {
-        return or(Arrays.asList(filters));
+    public static Filter and(final Filter... filters) {
+        return and(Arrays.asList(filters));
     }
 
     /**
+     * Returns a filter representing the disjunction( {@code ||} ).
+     * 
      * @param filters
-     * @return
+     *            filters to be operated
+     * @return a filter representing the disjunction
      */
     public static Filter or(final Iterable<? extends Filter> filters) {
         return new OrFilter(filters);
     }
 
     /**
+     * Equivalent to:
+     * 
+     * <pre style="margin: 2em;">
+     * or(Arrays.asList(filters))
+     * </pre>
+     */
+    public static Filter or(final Filter... filters) {
+        return or(Arrays.asList(filters));
+    }
+
+    /**
+     * Returns a filter representing the negation( {@code !} ).
+     * 
      * @param filter
-     * @return
+     *            a filter to be operated
+     * @return a filter representing the negation
      */
     public static Filter not(final Filter filter) {
         return new NotFilter(filter);
