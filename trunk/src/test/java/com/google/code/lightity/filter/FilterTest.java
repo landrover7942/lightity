@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.code.lightity.Entity;
 import com.google.code.lightity.EntityFactory;
 import com.google.code.lightity.EntityList;
 import com.google.code.lightity.EntityList.Filter;
