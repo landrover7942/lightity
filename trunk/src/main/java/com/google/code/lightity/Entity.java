@@ -9,51 +9,52 @@ package com.google.code.lightity;
 public interface Entity extends Iterable<EntityProperty<?>> {
 
     /**
-     * Get property value.
+     * Gets a value of the property.
      * 
      * @param <T>
-     *            property's type
+     *            a type of property
      * @param property
-     *            property to be got value
-     * @return given property's value
+     *            a property which has a gotten value
+     * @return a property value
      * @throws NoSuchEntityPropertyException
+     *             if the property does not exist
      */
     <T> T get(EntityProperty<T> property) throws NoSuchEntityPropertyException;
 
     /**
-     * Set property value.
+     * Sets a value of the property to this entity.
      * 
      * @param <T>
-     *            property's type
+     *            a type of property
      * @param property
-     *            property to be set value
+     *            a property to be set value
      * @param value
-     *            property's new value
-     * @return entity which has been set the value
+     *            a new value of the property
+     * @return an entity which has been set the value
      */
     <T> Entity set(EntityProperty<T> property, T value);
 
     /**
-     * Remove property.
+     * Removes the property.
      * 
      * @param property
-     *            property to be removed
+     *            a property to be removed
      * @since 0.2
      */
     void remove(EntityProperty<?> property);
 
     /**
-     * Whether property exists?
+     * Returns whether the property exists.
      * 
      * @param property
-     *            property to be checked the existence
-     * @return if the property exists {@code true}
+     *            a property to be checked the existence
+     * @return {@code true} if the property exists
      * @since 0.2
      */
     boolean exists(EntityProperty<?> property);
 
     /**
-     * Get the number of properties which this entity holds.
+     * Gets the number of properties which this entity has.
      * 
      * @return the number of properties
      * @since 0.2

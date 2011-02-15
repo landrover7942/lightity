@@ -1,26 +1,26 @@
 package com.google.code.lightity;
 
 /**
- * Entity's property.
+ * Property of {@link Entity}.
  * 
  * @param <T>
- *            property's type
+ *            a type of property
  * @since 0.1
  * @author Koba, Masafumi
  */
 public interface EntityProperty<T> {
 
     /**
-     * Get this property's name.
+     * Gets a name of this property.
      * 
-     * @return property's name
+     * @return a name of this property
      */
     String getName();
 
     /**
-     * Get this property's class.
+     * Gets a type class of this property.
      * 
-     * @return property's class
+     * @return a type class of this property
      */
     Class<T> getType();
 }
