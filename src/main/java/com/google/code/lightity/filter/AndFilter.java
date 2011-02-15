@@ -5,8 +5,10 @@ import com.google.code.lightity.EntityList.Filter;
 
 final class AndFilter extends CompositeFilter {
 
+    private static final String SYMBOL = "and";
+
     public AndFilter(final Iterable<? extends Filter> components) {
-        super(components);
+        super(components, SYMBOL);
     }
 
     @Override

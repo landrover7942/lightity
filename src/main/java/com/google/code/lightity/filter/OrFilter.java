@@ -5,8 +5,10 @@ import com.google.code.lightity.EntityList.Filter;
 
 final class OrFilter extends CompositeFilter {
 
+    private static final String SYMBOL = "or";
+
     public OrFilter(final Iterable<? extends Filter> components) {
-        super(components);
+        super(components, SYMBOL);
     }
 
     @Override

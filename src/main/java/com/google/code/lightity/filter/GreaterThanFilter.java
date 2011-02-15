@@ -5,10 +5,12 @@ import com.google.code.lightity.EntityProperty;
 
 final class GreaterThanFilter<T extends Comparable<T>> extends SimpleFilter<T> {
 
+    private static final String SYMBOL = ">";
+
     private final EqualFilter<T> equalOperator;
 
     public GreaterThanFilter(final EntityProperty<T> property, final T operand) {
-        super(property, operand);
+        super(property, operand, SYMBOL);
         this.equalOperator = new EqualFilter<T>(property, operand);
     }
 

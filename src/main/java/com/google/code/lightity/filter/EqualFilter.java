@@ -5,8 +5,10 @@ import com.google.code.lightity.EntityProperty;
 
 final class EqualFilter<T> extends SimpleFilter<T> {
 
+    private static final String SYMBOL = "=";
+
     public EqualFilter(final EntityProperty<T> property, final T operand) {
-        super(property, operand);
+        super(property, operand, SYMBOL);
     }
 
     @Override

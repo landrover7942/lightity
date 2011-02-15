@@ -19,4 +19,8 @@ final class NotFilter implements Filter {
         return !component.apply(entity);
     }
 
+    @Override
+    public String toString() {
+        return "(not " + component + ")";
+    }
 }
