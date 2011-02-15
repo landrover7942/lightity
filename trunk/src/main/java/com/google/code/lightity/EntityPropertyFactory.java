@@ -1,7 +1,7 @@
 package com.google.code.lightity;
 
 /**
- * {@link EntityProperty}'s factory.
+ * Factory of {@link EntityProperty}.
  * 
  * @since 0.1
  * @author Koba, Masafumi

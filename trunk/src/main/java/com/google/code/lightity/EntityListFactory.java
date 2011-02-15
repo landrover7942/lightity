@@ -7,13 +7,17 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
+ * Factory of {@link EntityList}.
+ * 
  * @since 0.3
  * @author Koba, Masafumi
  */
 public final class EntityListFactory {
 
     /**
-     * @return
+     * Creates an empty list of entity.
+     * 
+     * @return an empty list of entity
      */
     public static EntityList create() {
         return new EntityListImpl();
@@ -165,9 +169,9 @@ public final class EntityListFactory {
         }
 
         @Override
-        public void each(final Each function) {
+        public void each(final Each each) {
             for (int index = 0, size = size(); index < size; index++) {
-                if (!function.call(index, get(index))) {
+                if (!each.call(index, get(index))) {
                     break;
                 }
             }
