@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * {@link Entity}'s factory.
+ * Factory of {@link Entity}.
  * 
  * @since 0.1
  * @author Koba, Masafumi
@@ -15,9 +15,9 @@ public final class EntityFactory {
     /**
      * Create an empty entity.
      * <p>
-     * The entity to be created is {@link Entity}'s default implementation.
+     * The entity to be created is the default implementation of {@link Entity}.
      * 
-     * @return empty entity
+     * @return an empty entity
      */
     public static Entity create() {
         return new EntityImpl();

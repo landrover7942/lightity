@@ -24,7 +24,7 @@ public final class NoSuchEntityPropertyException extends RuntimeException {
     }
 
     /**
-     * Get property.
+     * Gets property.
      * 
      * @return property
      */
