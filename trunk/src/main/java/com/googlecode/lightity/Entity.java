@@ -3,7 +3,6 @@ package com.googlecode.lightity;
 /**
  * Entity.
  * 
- * @since 0.1
  * @author Koba, Masafumi
  */
 public interface Entity extends Iterable<EntityProperty<?>> {
@@ -39,7 +38,6 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * 
      * @param property
      *            a property to be removed
-     * @since 0.2
      */
     void remove(EntityProperty<?> property);
 
@@ -49,7 +47,6 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * @param property
      *            a property to be checked the existence
      * @return {@code true} if the property exists
-     * @since 0.2
      */
     boolean exists(EntityProperty<?> property);
 
@@ -57,7 +54,6 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * Gets the number of properties which this entity has.
      * 
      * @return the number of properties
-     * @since 0.2
      */
     int count();
 }

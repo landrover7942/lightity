@@ -10,7 +10,6 @@ import com.googlecode.lightity.EntityList.Filter;
 /**
  * Provides implementations of {@link Filter}.
  * 
- * @since 0.3
  * @author Koba, Masafumi
  */
 public final class Filters {

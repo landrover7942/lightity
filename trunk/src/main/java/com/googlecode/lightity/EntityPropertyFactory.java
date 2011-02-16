@@ -3,7 +3,6 @@ package com.googlecode.lightity;
 /**
  * Factory of {@link EntityProperty}.
  * 
- * @since 0.1
  * @author Koba, Masafumi
  */
 public final class EntityPropertyFactory {

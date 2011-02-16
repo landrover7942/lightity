@@ -9,7 +9,6 @@ import java.util.ListIterator;
 /**
  * Factory of {@link EntityList}.
  * 
- * @since 0.3
  * @author Koba, Masafumi
  */
 public final class EntityListFactory {

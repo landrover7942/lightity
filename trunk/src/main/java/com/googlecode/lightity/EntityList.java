@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * List of {@link Entity}.
  * 
- * @since 0.3
  * @author Koba, Masafumi
  */
 public interface EntityList extends List<Entity> {
