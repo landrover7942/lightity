@@ -22,7 +22,7 @@
   <scm>
     <connection>scm:svn:http://lightity.googlecode.com/svn/trunk/</connection>
     <developerConnection>scm:svn:https://lightity.googlecode.com/svn/trunk/</developerConnection>
-    <url>http://code.google.com/p/lightity/source/browse/</url>
+    <url>http://lightity.googlecode.com/svn/trunk/</url>
   </scm>
 
   <developers>
