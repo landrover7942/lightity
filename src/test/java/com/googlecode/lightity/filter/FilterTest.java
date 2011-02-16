@@ -1,15 +1,16 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.code.lightity.EntityFactory;
-import com.google.code.lightity.EntityList;
-import com.google.code.lightity.EntityList.Filter;
-import com.google.code.lightity.EntityListFactory;
-import com.google.code.lightity.Person;
+import com.googlecode.lightity.EntityFactory;
+import com.googlecode.lightity.EntityList;
+import com.googlecode.lightity.EntityListFactory;
+import com.googlecode.lightity.Person;
+import com.googlecode.lightity.EntityList.Filter;
+import com.googlecode.lightity.filter.Filters;
 
 public class FilterTest {
 

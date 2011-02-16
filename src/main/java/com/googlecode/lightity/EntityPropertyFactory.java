@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 /**
  * Factory of {@link EntityProperty}.

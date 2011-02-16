@@ -1,7 +1,7 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
-import com.google.code.lightity.Entity;
-import com.google.code.lightity.EntityList.Filter;
+import com.googlecode.lightity.Entity;
+import com.googlecode.lightity.EntityList.Filter;
 
 final class OrFilter extends CompositeFilter {
 

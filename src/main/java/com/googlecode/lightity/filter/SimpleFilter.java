@@ -1,7 +1,7 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
-import com.google.code.lightity.EntityList.Filter;
-import com.google.code.lightity.EntityProperty;
+import com.googlecode.lightity.EntityProperty;
+import com.googlecode.lightity.EntityList.Filter;
 
 abstract class SimpleFilter<T> implements Filter {
 

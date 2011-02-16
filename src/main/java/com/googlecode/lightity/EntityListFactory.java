@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 import java.util.ArrayList;
 import java.util.Collection;

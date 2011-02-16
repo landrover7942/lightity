@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,6 +6,11 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+
+import com.googlecode.lightity.Entity;
+import com.googlecode.lightity.EntityFactory;
+import com.googlecode.lightity.EntityProperty;
+import com.googlecode.lightity.NoSuchEntityPropertyException;
 
 public class EntityTest {
 

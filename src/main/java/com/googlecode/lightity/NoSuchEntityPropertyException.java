@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 /**
  * Thrown to indicate that a given property has not been found.

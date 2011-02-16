@@ -1,11 +1,11 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.code.lightity.EntityList.Filter;
-import com.google.code.lightity.EntityProperty;
+import com.googlecode.lightity.EntityProperty;
+import com.googlecode.lightity.EntityList.Filter;
 
 /**
  * Provides implementations of {@link Filter}.

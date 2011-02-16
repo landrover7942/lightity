@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
