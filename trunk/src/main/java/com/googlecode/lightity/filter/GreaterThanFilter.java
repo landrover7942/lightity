@@ -1,7 +1,7 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
-import com.google.code.lightity.Entity;
-import com.google.code.lightity.EntityProperty;
+import com.googlecode.lightity.Entity;
+import com.googlecode.lightity.EntityProperty;
 
 final class GreaterThanFilter<T extends Comparable<T>> extends SimpleFilter<T> {
 

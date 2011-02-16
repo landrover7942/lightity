@@ -1,4 +1,4 @@
-package com.google.code.lightity;
+package com.googlecode.lightity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -12,8 +12,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.code.lightity.EntityList.Each;
-import com.google.code.lightity.EntityList.Filter;
+import com.googlecode.lightity.Entity;
+import com.googlecode.lightity.EntityFactory;
+import com.googlecode.lightity.EntityList;
+import com.googlecode.lightity.EntityListFactory;
+import com.googlecode.lightity.EntityList.Each;
+import com.googlecode.lightity.EntityList.Filter;
 
 public class EntityListTest {
 

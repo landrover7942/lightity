@@ -1,6 +1,6 @@
-package com.google.code.lightity.filter;
+package com.googlecode.lightity.filter;
 
-import com.google.code.lightity.EntityList.Filter;
+import com.googlecode.lightity.EntityList.Filter;
 
 abstract class CompositeFilter implements Filter {
 
