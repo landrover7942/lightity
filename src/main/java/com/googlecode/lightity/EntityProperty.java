@@ -5,7 +5,6 @@ package com.googlecode.lightity;
  * 
  * @param <T>
  *            a type of property
- * @since 0.1
  * @author Koba, Masafumi
  */
 public interface EntityProperty<T> {

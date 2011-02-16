@@ -7,7 +7,6 @@ import java.util.Map;
 /**
  * Factory of {@link Entity}.
  * 
- * @since 0.1
  * @author Koba, Masafumi
  */
 public final class EntityFactory {

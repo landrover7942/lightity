@@ -3,7 +3,6 @@ package com.googlecode.lightity;
 /**
  * Thrown to indicate that a given property has not been found.
  * 
- * @since 0.2
  * @author Koba, Masafumi
  */
 @SuppressWarnings("serial")
