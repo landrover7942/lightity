@@ -66,6 +66,11 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>2.1.2</version>
         </plugin>
@@ -82,10 +87,10 @@
           <artifactId>maven-assembly-plugin</artifactId>
           <version>2.2</version>
           <configuration>
-            <descriptorRefs>
-              <descriptorRef>bin</descriptorRef>
-            </descriptorRefs>
             <appendAssemblyId>false</appendAssemblyId>
+            <descriptors>
+              <descriptor>src/main/assembly/src.xml</descriptor>
+            </descriptors>
           </configuration>
         </plugin>
         <plugin>
