@@ -61,6 +61,7 @@
           <configuration>
             <goals>install</goals>
             <mavenExecutorId>forked-path</mavenExecutorId>
+            <arguments>-Dgpg.skip=true</arguments>
           </configuration>
         </plugin>
         <plugin>
