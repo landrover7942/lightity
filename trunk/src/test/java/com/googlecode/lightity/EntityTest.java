@@ -7,11 +7,6 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.googlecode.lightity.Entity;
-import com.googlecode.lightity.EntityFactory;
-import com.googlecode.lightity.EntityProperty;
-import com.googlecode.lightity.NoSuchEntityPropertyException;
-
 public class EntityTest {
 
     @Test

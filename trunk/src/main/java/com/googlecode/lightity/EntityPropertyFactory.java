@@ -71,11 +71,11 @@ public final class EntityPropertyFactory {
             if (this == obj) {
                 return true;
             }
-            if (!(obj instanceof PropertyImpl)) {
+            if (!(obj instanceof EntityProperty)) {
                 return false;
             }
-            final PropertyImpl<?> other = (PropertyImpl<?>) obj;
-            return name.equals(other.name) && type.equals(other.type);
+            final EntityProperty<?> other = (EntityProperty<?>) obj;
+            return name.equals(other.getName()) && type.equals(other.getType());
         }
 
         @Override
