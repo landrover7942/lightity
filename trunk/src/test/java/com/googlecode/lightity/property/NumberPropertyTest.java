@@ -1,6 +1,7 @@
 package com.googlecode.lightity.property;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,19 +57,21 @@ public class NumberPropertyTest {
         num = new CustomNumberProperty();
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void test() throws Exception {
-        assertEquals("num", num.getName());
-        assertEquals(Integer.class, num.getType());
-        assertEquals("10", num.format(Integer.valueOf(10)));
-        assertEquals("0", num.format(Integer.valueOf(0)));
-        assertEquals("-1", num.format(Integer.valueOf(-1)));
-        assertEquals(Integer.valueOf(0), num.parse("0"));
-        assertEquals(Integer.valueOf(0), num.parse("0.1"));
-        assertEquals(Integer.valueOf(-1), num.parse("-1"));
-        assertEquals(NumberProperty.of("num", Integer.class), num);
-        assertEquals(NumberProperty.of("num", Integer.class).hashCode(),
-                num.hashCode());
+        assertThat(num.getName(), equalTo("num"));
+        assertThat(num.getType(), equalTo(Integer.class));
+        assertThat(num.format(10), equalTo("10"));
+        assertThat(num.format(0), equalTo("0"));
+        assertThat(num.format(-1), equalTo("-1"));
+        assertThat(num.parse("0"), equalTo(0));
+        assertThat(num.parse("0.1"), equalTo(0));
+        assertThat(num.parse("-1"), equalTo(-1));
+        assertThat(num.equals(NumberProperty.of("num", Integer.class)),
+                equalTo(true));
+        assertThat(num.hashCode(),
+                equalTo(NumberProperty.of("num", Integer.class).hashCode()));
     }
 
 }

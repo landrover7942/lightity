@@ -1,9 +1,10 @@
 package com.googlecode.lightity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +40,7 @@ public class EntityListTest {
                 .set(Person.AGE, 30));
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void each() {
         final List<Entity> pickup = new ArrayList<Entity>();
@@ -54,12 +56,13 @@ public class EntityListTest {
                 return true;
             }
         });
-        assertEquals(3, pickup.size());
-        assertEquals("a", pickup.get(0).get(Person.NAME));
-        assertEquals("c", pickup.get(1).get(Person.NAME));
-        assertEquals("e", pickup.get(2).get(Person.NAME));
+        assertThat(pickup.size(), equalTo(3));
+        assertThat(pickup.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(pickup.get(1).get(Person.NAME), equalTo("c"));
+        assertThat(pickup.get(2).get(Person.NAME), equalTo("e"));
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void filter() {
         final EntityList filter = list.filter(new Filter() {
@@ -68,22 +71,24 @@ public class EntityListTest {
                 return (entity.get(Person.AGE) == null);
             }
         });
-        assertNotSame(list, filter);
-        assertFalse(list.size() == filter.size());
-        assertEquals(1, filter.size());
-        assertNull(filter.get(0).get(Person.AGE));
+        assertThat(filter, not(sameInstance(list)));
+        assertThat(filter.size(), not(equalTo(list.size())));
+        assertThat(filter.size(), equalTo(1));
+        assertThat(filter.get(0).get(Person.AGE), nullValue());
     }
 
     @SuppressWarnings("boxing")
     @Test
     public void toPropertyValueList() {
         final List<Integer> ageList = list.toPropertyValueList(Person.AGE);
-        assertEquals(list.size(), ageList.size());
-        assertEquals(Arrays.asList(80, 10, 90, null, 20, 40, 30), ageList);
+        assertThat(ageList.size(), equalTo(list.size()));
+        assertThat(ageList,
+                equalTo(Arrays.asList(80, 10, 90, null, 20, 40, 30)));
 
         final List<String> nameList = list.toPropertyValueList(Person.NAME);
-        assertEquals(list.size(), nameList.size());
-        assertEquals(Arrays.asList("a", "b", "c", "d", "e", "f", "g"), nameList);
+        assertThat(nameList.size(), equalTo(list.size()));
+        assertThat(nameList,
+                equalTo(Arrays.asList("a", "b", "c", "d", "e", "f", "g")));
     }
 
 }

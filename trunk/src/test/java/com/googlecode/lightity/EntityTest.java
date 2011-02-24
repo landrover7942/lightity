@@ -1,39 +1,45 @@
 package com.googlecode.lightity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class EntityTest {
 
+    private Entity person;
+
+    @Before
+    public void setUp() {
+        person = EntityFactory.create();
+    }
+
+    @SuppressWarnings("boxing")
     @Test
-    public void sample() throws Exception {
-        final Entity person = EntityFactory.create();
+    public void normal() throws Exception {
         System.out.println(person);
-        try {
-            person.get(Person.NAME);
-            fail(person.toString());
-        } catch (final NoSuchEntityPropertyException e) {
-            // pass
-        }
+
         person.remove(Person.NAME);
-        assertFalse(person.exists(Person.NAME));
+        assertThat(person.exists(Person.NAME), equalTo(false));
         person.set(Person.NAME, "abc").set(Person.AGE, Integer.valueOf(10));
         System.out.println(person);
-        assertTrue(person.exists(Person.NAME));
-        assertEquals("abc", person.get(Person.NAME));
-        assertEquals(10, person.get(Person.AGE).intValue());
+        assertThat(person.exists(Person.NAME), equalTo(true));
+        assertThat(person.get(Person.NAME), equalTo("abc"));
+        assertThat(person.get(Person.AGE), equalTo(10));
 
         for (final EntityProperty<?> property : person) {
             System.out.println(property);
         }
 
-        assertTrue(person.exists(Person.NAME));
+        assertThat(person.exists(Person.NAME), equalTo(true));
         person.remove(Person.NAME);
-        assertFalse(person.exists(Person.NAME));
+        assertThat(person.exists(Person.NAME), equalTo(false));
+    }
+
+    @Test(expected = NoSuchEntityPropertyException.class)
+    public void raiseNoPropertyError() throws Exception {
+        person.get(Person.NAME);
     }
 
 }
