@@ -43,8 +43,8 @@ public class StringProperty implements EntityProperty<String>,
     }
 
     @Override
-    public String parse(final String source) {
-        return source;
+    public String parse(final CharSequence source) {
+        return (source == null) ? null : source.toString();
     }
 
     @Override
