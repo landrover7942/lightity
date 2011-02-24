@@ -15,12 +15,16 @@ import com.googlecode.lightity.Validatable;
  * 
  * @author Koba, Masafumi
  */
-public class StringProperty extends ForwardingEntityProperty<String> implements
-        Parsable<String>, Formattable<String>, Validatable<String> {
+public final class StringProperty extends ForwardingEntityProperty<String>
+        implements Parsable<String>, Formattable<String>, Validatable<String> {
+
+    public static StringProperty of(final String name) {
+        return new StringProperty(name);
+    }
 
     private final EntityProperty<String> delegate;
 
-    public StringProperty(final String name) {
+    private StringProperty(final String name) {
         delegate = EntityPropertyFactory.create(name, String.class);
     }
 
