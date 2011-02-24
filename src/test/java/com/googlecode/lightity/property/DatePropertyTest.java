@@ -1,6 +1,8 @@
 package com.googlecode.lightity.property;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -72,17 +74,18 @@ public class DatePropertyTest {
         Locale.setDefault(savedLocale);
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void test() throws Exception {
-        assertEquals("date", date.getName());
-        assertEquals(Date.class, date.getType());
-        assertEquals("1972/01/30 15:09:58", date.format(SAMPLE_DATE));
-        assertEquals(null, date.format(null));
-        assertEquals(null, date.parse(""));
-        assertEquals(null, date.parse(null));
-        assertEquals(SAMPLE_DATE,
-                date.parse(new StringBuilder("1972/01/30 15:09:58")));
-        assertEquals(DateProperty.of("date"), date);
-        assertEquals(DateProperty.of("date").hashCode(), date.hashCode());
+        assertThat(date.getName(), equalTo("date"));
+        assertThat(date.getType(), equalTo(Date.class));
+        assertThat(date.format(SAMPLE_DATE), equalTo("1972/01/30 15:09:58"));
+        assertThat(date.format(null), nullValue());
+        assertThat(date.parse(""), nullValue());
+        assertThat(date.parse(null), nullValue());
+        assertThat(date.parse(new StringBuilder("1972/01/30 15:09:58")),
+                equalTo(SAMPLE_DATE));
+        assertThat(date.equals(DateProperty.of("date")), equalTo(true));
+        assertThat(date.hashCode(), equalTo(DateProperty.of("date").hashCode()));
     }
 }

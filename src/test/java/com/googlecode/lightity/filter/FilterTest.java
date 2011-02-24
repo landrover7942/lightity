@@ -1,5 +1,7 @@
 package com.googlecode.lightity.filter;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -30,55 +32,57 @@ public class FilterTest {
         filtered = EntityListFactory.create();
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void equal() {
         filter(Filters.equal(Person.NAME, "c"));
-        assertEquals(1, filtered.size());
-        assertEquals("c", filtered.get(0).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(1));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("c"));
     }
 
     @SuppressWarnings("boxing")
     @Test
     public void greaterThan() {
         filter(Filters.greaterThan(Person.AGE, 10));
-        assertEquals(2, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
-        assertEquals("b", filtered.get(1).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(2));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("b"));
     }
 
     @SuppressWarnings("boxing")
     @Test
     public void greaterThanOrEqual() {
         filter(Filters.greaterThanOrEqual(Person.AGE, 10));
-        assertEquals(3, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
-        assertEquals("b", filtered.get(1).get(Person.NAME));
-        assertEquals("c", filtered.get(2).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(3));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("b"));
+        assertThat(filtered.get(2).get(Person.NAME), equalTo("c"));
     }
 
     @SuppressWarnings("boxing")
     @Test
     public void lessThan() {
         filter(Filters.lessThan(Person.AGE, 20));
-        assertEquals(1, filtered.size());
-        assertEquals("c", filtered.get(0).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(1));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("c"));
     }
 
     @SuppressWarnings("boxing")
     @Test
     public void lessThanOrEqual() {
         filter(Filters.lessThanOrEqual(Person.AGE, 20));
-        assertEquals(2, filtered.size());
-        assertEquals("b", filtered.get(0).get(Person.NAME));
-        assertEquals("c", filtered.get(1).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(2));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("b"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("c"));
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void not() {
         filter(Filters.not(Filters.equal(Person.NAME, "c")));
-        assertEquals(2, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
-        assertEquals("b", filtered.get(1).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(2));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("b"));
     }
 
     @SuppressWarnings("boxing")
@@ -86,8 +90,8 @@ public class FilterTest {
     public void and() {
         filter(Filters.and(Filters.equal(Person.NAME, "a"),
                 Filters.greaterThan(Person.AGE, 20)));
-        assertEquals(1, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(1));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
     }
 
     @SuppressWarnings("boxing")
@@ -95,15 +99,16 @@ public class FilterTest {
     public void or() {
         filter(Filters.or(Filters.equal(Person.AGE, 20),
                 Filters.greaterThan(Person.AGE, 20)));
-        assertEquals(2, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
-        assertEquals("b", filtered.get(1).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(2));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("b"));
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void isNull() {
         filter(Filters.isNull(Person.AGE));
-        assertEquals(0, filtered.size());
+        assertThat(filtered.size(), equalTo(0));
     }
 
     @Test
@@ -112,12 +117,13 @@ public class FilterTest {
         assertEquals(persons, filtered);
     }
 
+    @SuppressWarnings("boxing")
     @Test
     public void in() {
         filter(Filters.in(Person.NAME, "a", "c"));
-        assertEquals(2, filtered.size());
-        assertEquals("a", filtered.get(0).get(Person.NAME));
-        assertEquals("c", filtered.get(1).get(Person.NAME));
+        assertThat(filtered.size(), equalTo(2));
+        assertThat(filtered.get(0).get(Person.NAME), equalTo("a"));
+        assertThat(filtered.get(1).get(Person.NAME), equalTo("c"));
     }
 
     private void filter(Filter filter) {
