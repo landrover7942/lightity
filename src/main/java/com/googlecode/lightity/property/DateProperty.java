@@ -14,16 +14,20 @@ import com.googlecode.lightity.Parsable;
 import com.googlecode.lightity.Validatable;
 
 /**
- * A timestamp property.
+ * A date property.
  * 
  * @author Koba, Masafumi
  */
-public class DateProperty extends ForwardingEntityProperty<Date> implements
-        Parsable<Date>, Formattable<Date>, Validatable<Date> {
+public final class DateProperty extends ForwardingEntityProperty<Date>
+        implements Parsable<Date>, Formattable<Date>, Validatable<Date> {
+
+    public static DateProperty of(final String name) {
+        return new DateProperty(name);
+    }
 
     private final EntityProperty<Date> delegate;
 
-    public DateProperty(final String name) {
+    private DateProperty(final String name) {
         delegate = EntityPropertyFactory.create(name, Date.class);
     }
 
