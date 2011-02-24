@@ -23,7 +23,7 @@ import com.googlecode.lightity.Validatable;
  *            a number type
  * @author Koba, Masafumi
  */
-public class NumberProperty<T extends Number> extends
+public final class NumberProperty<T extends Number> extends
         ForwardingEntityProperty<T> implements Parsable<T>, Formattable<T>,
         Validatable<T> {
 
@@ -34,7 +34,7 @@ public class NumberProperty<T extends Number> extends
 
     private final EntityProperty<T> delegate;
 
-    public NumberProperty(final String name, final Class<T> type) {
+    private NumberProperty(final String name, final Class<T> type) {
         delegate = EntityPropertyFactory.create(name, type);
     }
 
