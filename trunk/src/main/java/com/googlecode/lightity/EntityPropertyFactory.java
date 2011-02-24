@@ -12,6 +12,11 @@ public final class EntityPropertyFactory {
      * <p>
      * The property to be created is {@link EntityProperty}'s default
      * implementation.
+     * <p>
+     * A property which this method returns is <em>immutable</em>, and
+     * implements {@code equals} and {@code hashCode} methods by using the
+     * values which {@code getName} and {@code getType} methods return. So it
+     * can be used as a hash key.
      * 
      * @param <T>
      *            new property's type
