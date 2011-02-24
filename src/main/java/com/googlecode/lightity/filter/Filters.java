@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.googlecode.lightity.EntityProperty;
 import com.googlecode.lightity.EntityList.Filter;
+import com.googlecode.lightity.EntityProperty;
 
 /**
  * Provides implementations of {@link Filter}.

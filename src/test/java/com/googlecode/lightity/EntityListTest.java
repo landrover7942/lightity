@@ -12,10 +12,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.googlecode.lightity.Entity;
-import com.googlecode.lightity.EntityFactory;
-import com.googlecode.lightity.EntityList;
-import com.googlecode.lightity.EntityListFactory;
 import com.googlecode.lightity.EntityList.Each;
 import com.googlecode.lightity.EntityList.Filter;
 

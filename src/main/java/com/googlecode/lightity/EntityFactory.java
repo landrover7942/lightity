@@ -48,7 +48,8 @@ public final class EntityFactory {
             if (property == null) {
                 throw new NullPointerException("required property");
             }
-            propertyValuePairs.put(getKey(property), new PropertyValuePair(property, value));
+            propertyValuePairs.put(getKey(property), new PropertyValuePair(
+                    property, value));
             return this;
         }
 
@@ -79,7 +80,8 @@ public final class EntityFactory {
 
         @Override
         public Iterator<EntityProperty<?>> iterator() {
-            final List<EntityProperty<?>> properties = new ArrayList<EntityProperty<?>>(count());
+            final List<EntityProperty<?>> properties = new ArrayList<EntityProperty<?>>(
+                    count());
             for (final PropertyValuePair pair : propertyValuePairs.values()) {
                 properties.add(pair.property);
             }

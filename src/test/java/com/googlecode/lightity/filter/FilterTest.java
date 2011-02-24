@@ -7,10 +7,9 @@ import org.junit.Test;
 
 import com.googlecode.lightity.EntityFactory;
 import com.googlecode.lightity.EntityList;
+import com.googlecode.lightity.EntityList.Filter;
 import com.googlecode.lightity.EntityListFactory;
 import com.googlecode.lightity.Person;
-import com.googlecode.lightity.EntityList.Filter;
-import com.googlecode.lightity.filter.Filters;
 
 public class FilterTest {
 
