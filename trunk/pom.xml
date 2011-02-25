@@ -186,6 +186,11 @@
     </profile>
     <profile>
       <id>release-javadoc</id>
+      <activation>
+        <property>
+          <name>releaseVersion</name>
+        </property>
+      </activation>
       <build>
         <plugins>
           <plugin>
