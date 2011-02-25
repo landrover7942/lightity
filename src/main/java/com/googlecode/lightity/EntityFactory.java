@@ -3,6 +3,7 @@ package com.googlecode.lightity;
 import static java.util.Collections.unmodifiableMap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -22,9 +23,29 @@ public final class EntityFactory {
      * The entity to be created is the default implementation of {@link Entity}.
      * 
      * @return an empty entity
+     * @deprecated use {@link #mutable()}
      */
+    @Deprecated
     public static Entity create() {
-        return new EntityImpl();
+        return mutable();
+    }
+
+    /**
+     * Returns a mutable entity.
+     * 
+     * @return a mutable entity
+     */
+    public static Entity mutable() {
+        return new MutableEntity();
+    }
+
+    /**
+     * Returns an immutable entity.
+     * 
+     * @return an immutable entity
+     */
+    public static Entity immutable() {
+        return new ImmutableEntity();
     }
 
     private static class PropertyValuePair {
@@ -38,26 +59,27 @@ public final class EntityFactory {
         }
     }
 
-    private static class EntityImpl implements Entity {
-
-        private static String getKey(final EntityProperty<?> property) {
+    private static abstract class AbstractEntity implements Entity {
+        static String getKey(final EntityProperty<?> property) {
             return property.getName();
         }
 
-        private final Map<String, PropertyValuePair> propertyValuePairs = new HashMap<String, EntityFactory.PropertyValuePair>();
+        final Map<String, PropertyValuePair> propertyValuePairs;
+
+        AbstractEntity(final Map<String, PropertyValuePair> pairs) {
+            propertyValuePairs = pairs;
+        }
 
         @Override
         public <T> Entity set(final EntityProperty<T> property, final T value) {
             if (property == null) {
                 throw new NullPointerException("required property");
             }
-            propertyValuePairs.put(getKey(property), new PropertyValuePair(
-                    property, value));
             return this;
         }
 
         @Override
-        public <T> T get(final EntityProperty<T> property)
+        public final <T> T get(final EntityProperty<T> property)
                 throws NoSuchEntityPropertyException {
             final String key = getKey(property);
             if (!propertyValuePairs.containsKey(key)) {
@@ -67,28 +89,22 @@ public final class EntityFactory {
         }
 
         @Override
-        public void remove(final EntityProperty<?> property) {
-            propertyValuePairs.remove(getKey(property));
+        public final void remove(final EntityProperty<?> property) {
+            delete(property);
         }
 
         @Override
-        public Entity delete(final EntityProperty<?> property) {
-            propertyValuePairs.remove(getKey(property));
-            return this;
-        }
-
-        @Override
-        public boolean exists(final EntityProperty<?> property) {
+        public final boolean exists(final EntityProperty<?> property) {
             return propertyValuePairs.containsKey(getKey(property));
         }
 
         @Override
-        public int count() {
+        public final int count() {
             return propertyValuePairs.size();
         }
 
         @Override
-        public Iterator<EntityProperty<?>> iterator() {
+        public final Iterator<EntityProperty<?>> iterator() {
             final List<EntityProperty<?>> properties = new ArrayList<EntityProperty<?>>(
                     count());
             for (final PropertyValuePair pair : propertyValuePairs.values()) {
@@ -98,7 +114,7 @@ public final class EntityFactory {
         }
 
         @Override
-        public Map<String, Object> toMap() {
+        public final Map<String, Object> toMap() {
             final Map<String, Object> result = new HashMap<String, Object>(
                     count());
             for (final Entry<String, PropertyValuePair> entry : propertyValuePairs
@@ -109,7 +125,7 @@ public final class EntityFactory {
         }
 
         @Override
-        public String toString() {
+        public final String toString() {
             final StringBuilder sb = new StringBuilder();
             sb.append('{');
             for (final PropertyValuePair pair : propertyValuePairs.values()) {
@@ -123,6 +139,56 @@ public final class EntityFactory {
             }
             sb.append('}');
             return sb.toString();
+        }
+    }
+
+    private static class MutableEntity extends AbstractEntity {
+
+        MutableEntity() {
+            super(new HashMap<String, PropertyValuePair>());
+        }
+
+        @Override
+        public <T> Entity set(final EntityProperty<T> property, final T value) {
+            super.set(property, value);
+            propertyValuePairs.put(getKey(property), new PropertyValuePair(
+                    property, value));
+            return this;
+        }
+
+        @Override
+        public Entity delete(final EntityProperty<?> property) {
+            propertyValuePairs.remove(getKey(property));
+            return this;
+        }
+
+    }
+
+    private static class ImmutableEntity extends AbstractEntity {
+
+        ImmutableEntity() {
+            this(Collections.<String, PropertyValuePair> emptyMap());
+        }
+
+        ImmutableEntity(final Map<String, PropertyValuePair> pairs) {
+            super(unmodifiableMap(pairs));
+        }
+
+        @Override
+        public <T> Entity set(final EntityProperty<T> property, final T value) {
+            super.set(property, value);
+            final Map<String, PropertyValuePair> pairs = new HashMap<String, EntityFactory.PropertyValuePair>(
+                    propertyValuePairs);
+            pairs.put(getKey(property), new PropertyValuePair(property, value));
+            return new ImmutableEntity(pairs);
+        }
+
+        @Override
+        public Entity delete(final EntityProperty<?> property) {
+            final Map<String, PropertyValuePair> pairs = new HashMap<String, EntityFactory.PropertyValuePair>(
+                    propertyValuePairs);
+            pairs.remove(getKey(property));
+            return new ImmutableEntity(pairs);
         }
     }
 
