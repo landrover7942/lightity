@@ -91,7 +91,7 @@ public final class EntityFactory {
         @Override
         public String toString() {
             final StringBuilder sb = new StringBuilder();
-            sb.append('[');
+            sb.append('{');
             for (final PropertyValuePair pair : propertyValuePairs.values()) {
                 if (sb.length() > 1) {
                     sb.append(", ");
@@ -101,7 +101,7 @@ public final class EntityFactory {
                 sb.append('=');
                 sb.append(pair.value);
             }
-            sb.append(']');
+            sb.append('}');
             return sb.toString();
         }
 
