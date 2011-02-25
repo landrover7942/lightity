@@ -1,8 +1,4 @@
-package com.googlecode.lightity.property;
-
-import com.googlecode.lightity.EntityProperty;
-import com.googlecode.lightity.EntityPropertyFactory;
-import com.googlecode.lightity.ForwardingEntityProperty;
+package com.googlecode.lightity;
 
 /**
  * A number property.

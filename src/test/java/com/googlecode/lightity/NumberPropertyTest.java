@@ -1,4 +1,4 @@
-package com.googlecode.lightity.property;
+package com.googlecode.lightity;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
