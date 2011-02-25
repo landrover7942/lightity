@@ -1,10 +1,6 @@
-package com.googlecode.lightity.property;
+package com.googlecode.lightity;
 
 import java.util.Date;
-
-import com.googlecode.lightity.EntityProperty;
-import com.googlecode.lightity.EntityPropertyFactory;
-import com.googlecode.lightity.ForwardingEntityProperty;
 
 /**
  * A date property.
