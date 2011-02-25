@@ -1,8 +1,9 @@
 package com.googlecode.lightity.property;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -77,15 +78,15 @@ public class DatePropertyTest {
     @SuppressWarnings("boxing")
     @Test
     public void test() throws Exception {
-        assertThat(date.getName(), equalTo("date"));
+        assertThat(date.getName(), is("date"));
         assertThat(date.getType(), equalTo(Date.class));
-        assertThat(date.format(SAMPLE_DATE), equalTo("1972/01/30 15:09:58"));
+        assertThat(date.format(SAMPLE_DATE), is("1972/01/30 15:09:58"));
         assertThat(date.format(null), nullValue());
         assertThat(date.parse(""), nullValue());
         assertThat(date.parse(null), nullValue());
         assertThat(date.parse(new StringBuilder("1972/01/30 15:09:58")),
-                equalTo(SAMPLE_DATE));
-        assertThat(date.equals(DateProperty.of("date")), equalTo(true));
-        assertThat(date.hashCode(), equalTo(DateProperty.of("date").hashCode()));
+                is(SAMPLE_DATE));
+        assertThat(date.equals(DateProperty.of("date")), is(true));
+        assertThat(date.hashCode(), is(DateProperty.of("date").hashCode()));
     }
 }

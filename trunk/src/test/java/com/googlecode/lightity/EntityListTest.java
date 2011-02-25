@@ -1,10 +1,10 @@
 package com.googlecode.lightity;
 
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,10 +56,10 @@ public class EntityListTest {
                 return true;
             }
         });
-        assertThat(pickup.size(), equalTo(3));
-        assertThat(pickup.get(0).get(Person.NAME), equalTo("a"));
-        assertThat(pickup.get(1).get(Person.NAME), equalTo("c"));
-        assertThat(pickup.get(2).get(Person.NAME), equalTo("e"));
+        assertThat(pickup.size(), is(3));
+        assertThat(pickup.get(0).get(Person.NAME), is("a"));
+        assertThat(pickup.get(1).get(Person.NAME), is("c"));
+        assertThat(pickup.get(2).get(Person.NAME), is("e"));
     }
 
     @SuppressWarnings("boxing")
@@ -72,8 +72,8 @@ public class EntityListTest {
             }
         });
         assertThat(filter, not(sameInstance(list)));
-        assertThat(filter.size(), not(equalTo(list.size())));
-        assertThat(filter.size(), equalTo(1));
+        assertThat(filter.size(), not(list.size()));
+        assertThat(filter.size(), is(1));
         assertThat(filter.get(0).get(Person.AGE), nullValue());
     }
 
@@ -81,14 +81,13 @@ public class EntityListTest {
     @Test
     public void toPropertyValueList() {
         final List<Integer> ageList = list.toPropertyValueList(Person.AGE);
-        assertThat(ageList.size(), equalTo(list.size()));
-        assertThat(ageList,
-                equalTo(Arrays.asList(80, 10, 90, null, 20, 40, 30)));
+        assertThat(ageList.size(), is(list.size()));
+        assertThat(ageList, is(Arrays.asList(80, 10, 90, null, 20, 40, 30)));
 
         final List<String> nameList = list.toPropertyValueList(Person.NAME);
-        assertThat(nameList.size(), equalTo(list.size()));
+        assertThat(nameList.size(), is(list.size()));
         assertThat(nameList,
-                equalTo(Arrays.asList("a", "b", "c", "d", "e", "f", "g")));
+                is(Arrays.asList("a", "b", "c", "d", "e", "f", "g")));
     }
 
 }
