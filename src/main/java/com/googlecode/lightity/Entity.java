@@ -85,7 +85,7 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * @return an immutable map view
      */
     @Nonnull
-    Map<String, Object> toMap();
+    Map<EntityProperty<?>, Object> toMap();
 
     /**
      * Returns a set view of properties which this entity has.
