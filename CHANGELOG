@@ -6,6 +6,6 @@ Release 0.5 (2011-03-xx)
 ------------------------
 * Add some implementations of EntityProperty.
 * EntityList, EntityListFactory and filter package is deprecated.
-* Add delete and toMap methods to Entity.
+* Add delete, toMap and toPropertySet methods to Entity.
 * Add ForwardingEntity and ForwardingEntityProperty classes.
 * Add mutable and immutable methods to EntityFactory.

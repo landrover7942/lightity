@@ -1,12 +1,18 @@
 package com.googlecode.lightity;
 
 import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * Entity.
  * 
  * @author Koba, Masafumi
  */
+@ParametersAreNonnullByDefault
 public interface Entity extends Iterable<EntityProperty<?>> {
 
     /**
@@ -20,6 +26,7 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * @throws NoSuchEntityPropertyException
      *             if the property does not exist
      */
+    @Nonnull
     <T> T get(EntityProperty<T> property) throws NoSuchEntityPropertyException;
 
     /**
@@ -33,7 +40,8 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      *            a new value of the property
      * @return an entity which has been set the value
      */
-    <T> Entity set(EntityProperty<T> property, T value);
+    @Nonnull
+    <T> Entity set(EntityProperty<T> property, @Nullable T value);
 
     /**
      * Removes the property.
@@ -52,6 +60,7 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      *            a property to be deleted
      * @return an entity in which the property has been deleted
      */
+    @Nonnull
     Entity delete(EntityProperty<?> property);
 
     /**
@@ -75,5 +84,15 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * 
      * @return an immutable map view
      */
+    @Nonnull
     Map<String, Object> toMap();
+
+    /**
+     * Returns a set view of properties which this entity has.
+     * 
+     * @return an immutable set view of properties
+     */
+    @Nonnull
+    Set<EntityProperty<?>> toPropertySet();
+
 }
