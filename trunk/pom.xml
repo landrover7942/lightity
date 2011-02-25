@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.lightity</groupId>
   <artifactId>lightity</artifactId>
-  <version>0.5-SNAPSHOT</version>
+  <version>0.5-alpha-3</version>
   <packaging>jar</packaging>
   <name>Lightity</name>
   <description>Light, simple entity for Java</description>
@@ -20,9 +20,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:http://lightity.googlecode.com/svn/trunk/</connection>
-    <developerConnection>scm:svn:https://lightity.googlecode.com/svn/trunk/</developerConnection>
-    <url>http://lightity.googlecode.com/svn/trunk/</url>
+    <connection>scm:svn:http://lightity.googlecode.com/svn/tags/lightity-0.5-alpha-3</connection>
+    <developerConnection>scm:svn:https://lightity.googlecode.com/svn/tags/lightity-0.5-alpha-3</developerConnection>
+    <url>http://lightity.googlecode.com/svn/tags/lightity-0.5-alpha-3</url>
   </scm>
 
   <developers>
