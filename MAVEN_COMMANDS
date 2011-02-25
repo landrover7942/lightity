@@ -1,2 +1,6 @@
 # when release, must specify the system property 'releaseVersion'
 mvn release:prepare -DreleaseVersion=<...>
+
+# create bundle for uploading remote repository
+mvn scm:checkout -DscmVersionType=tag -DscmVersion=<...>
+mvn --file target/checkout/pom.xml repository:bundle-create -DperformRelease
