@@ -8,7 +8,7 @@ package com.googlecode.lightity;
 @SuppressWarnings("serial")
 public final class NoSuchEntityPropertyException extends RuntimeException {
 
-    private EntityProperty<?> property;
+    private final EntityProperty<?> property;
 
     /**
      * Constructor.

@@ -27,7 +27,7 @@ public abstract class ForwardingEntityProperty<T> implements EntityProperty<T> {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         return delegate().equals(obj);
     }
 
