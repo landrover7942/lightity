@@ -14,7 +14,6 @@ final class NotFilter implements Filter {
         }
     }
 
-    @Override
     public boolean apply(final Entity entity) {
         return !component.apply(entity);
     }

@@ -11,7 +11,6 @@ final class AndFilter extends CompositeFilter {
         super(components, SYMBOL);
     }
 
-    @Override
     public boolean apply(final Entity entity) {
         for (final Filter component : components) {
             if (!component.apply(entity)) {

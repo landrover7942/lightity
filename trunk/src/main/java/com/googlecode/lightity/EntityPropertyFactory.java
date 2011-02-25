@@ -51,12 +51,10 @@ public final class EntityPropertyFactory {
             }
         }
 
-        @Override
         public String getName() {
             return name;
         }
 
-        @Override
         public Class<T> getType() {
             return type;
         }

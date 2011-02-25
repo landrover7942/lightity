@@ -11,7 +11,6 @@ final class EqualFilter<T> extends SimpleFilter<T> {
         super(property, operand, SYMBOL);
     }
 
-    @Override
     public boolean apply(final Entity entity) {
         final T get = entity.get(property);
         if (get == operand) {
