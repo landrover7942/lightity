@@ -1,13 +1,15 @@
 package com.googlecode.lightity;
 
-import static java.util.Collections.unmodifiableMap;
+import static java.util.Collections.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 /**
@@ -140,6 +142,19 @@ public final class EntityFactory {
             sb.append('}');
             return sb.toString();
         }
+
+        @Override
+        public Set<EntityProperty<?>> toPropertySet() {
+            final Set<EntityProperty<?>> result = new HashSet<EntityProperty<?>>(
+                    count());
+            for (final PropertyValuePair pair : propertyValuePairs.values()) {
+                result.add(pair.property);
+            }
+            return unmodifiableSet(result);
+        }
+
+        @Override
+        public abstract Entity delete(EntityProperty<?> property);
     }
 
     private static class MutableEntity extends AbstractEntity {

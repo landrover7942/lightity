@@ -126,6 +126,38 @@ public class EntityTest {
                 .toMap(), isMap(Person.NAME, "Tom", Person.AGE, 20));
     }
 
+    @Test(expected = UnsupportedOperationException.class)
+    public void whenMapFromEntityIsModifiedByMutable() throws Exception {
+        mutable.toMap().put("key", new Object());
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void whenMapFromEntityIsModifiedByImmutable() throws Exception {
+        immutable.toMap().put("key", new Object());
+    }
+
+    @SuppressWarnings("boxing")
+    @Test
+    public void whenEntityIsConvertedToPropertySet() throws Exception {
+        assertThat(mutable.toPropertySet().size(), is(0));
+        assertThat(mutable.set(Person.NAME, "Tom").set(Person.AGE, 20)
+                .toPropertySet(), has(Person.NAME, Person.AGE));
+
+        assertThat(immutable.toPropertySet().size(), is(0));
+        assertThat(immutable.set(Person.NAME, "Tom").set(Person.AGE, 20)
+                .toPropertySet(), has(Person.NAME, Person.AGE));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void whenSetFromEntityIsModifiedByMutable() throws Exception {
+        mutable.toPropertySet().add(Person.NAME);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void whenSetFromEntityIsModifiedByImmutable() throws Exception {
+        immutable.toPropertySet().add(Person.NAME);
+    }
+
     private static Matcher<Iterable<EntityProperty<?>>> has(
             final EntityProperty<?>... properties) {
         return JUnitMatchers.<EntityProperty<?>> hasItems(properties);
