@@ -80,7 +80,7 @@ public final class EntityPropertyFactory {
 
         @Override
         public String toString() {
-            return String.format("%s:%s", name, type.getName());
+            return name + ':' + type.getName();
         }
     }
 
