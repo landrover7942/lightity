@@ -116,12 +116,11 @@ public final class EntityFactory {
         }
 
         @Override
-        public final Map<String, Object> toMap() {
-            final Map<String, Object> result = new HashMap<String, Object>(
+        public final Map<EntityProperty<?>, Object> toMap() {
+            final Map<EntityProperty<?>, Object> result = new HashMap<EntityProperty<?>, Object>(
                     count());
-            for (final Entry<String, PropertyValuePair> entry : propertyValuePairs
-                    .entrySet()) {
-                result.put(entry.getKey(), entry.getValue().value);
+            for (final PropertyValuePair pair : propertyValuePairs.values()) {
+                result.put(pair.property, pair.value);
             }
             return unmodifiableMap(result);
         }

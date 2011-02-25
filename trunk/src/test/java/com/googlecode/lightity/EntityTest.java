@@ -128,12 +128,12 @@ public class EntityTest {
 
     @Test(expected = UnsupportedOperationException.class)
     public void whenMapFromEntityIsModifiedByMutable() throws Exception {
-        mutable.toMap().put("key", new Object());
+        mutable.toMap().put(Person.NAME, "name");
     }
 
     @Test(expected = UnsupportedOperationException.class)
     public void whenMapFromEntityIsModifiedByImmutable() throws Exception {
-        immutable.toMap().put("key", new Object());
+        immutable.toMap().put(Person.NAME, "name");
     }
 
     @SuppressWarnings("boxing")
@@ -163,12 +163,13 @@ public class EntityTest {
         return JUnitMatchers.<EntityProperty<?>> hasItems(properties);
     }
 
-    private static Matcher<Map<String, Object>> isMap(
+    private static Matcher<Map<EntityProperty<?>, Object>> isMap(
             final EntityProperty<?> p1, final Object v1,
             final EntityProperty<?> p2, final Object v2) {
-        final Map<String, Object> map = new HashMap<String, Object>(2);
-        map.put(p1.getName(), v1);
-        map.put(p2.getName(), v2);
+        final Map<EntityProperty<?>, Object> map = new HashMap<EntityProperty<?>, Object>(
+                2);
+        map.put(p1, v1);
+        map.put(p2, v2);
         return is(map);
     }
 
