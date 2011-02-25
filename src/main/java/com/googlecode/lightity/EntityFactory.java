@@ -72,7 +72,6 @@ public final class EntityFactory {
             propertyValuePairs = pairs;
         }
 
-        @Override
         public <T> Entity set(final EntityProperty<T> property, final T value) {
             if (property == null) {
                 throw new NullPointerException("required property");
@@ -80,7 +79,6 @@ public final class EntityFactory {
             return this;
         }
 
-        @Override
         public final <T> T get(final EntityProperty<T> property)
                 throws NoSuchEntityPropertyException {
             final String key = getKey(property);
@@ -90,22 +88,18 @@ public final class EntityFactory {
             return property.getType().cast(propertyValuePairs.get(key).value);
         }
 
-        @Override
         public final void remove(final EntityProperty<?> property) {
             delete(property);
         }
 
-        @Override
         public final boolean exists(final EntityProperty<?> property) {
             return propertyValuePairs.containsKey(getKey(property));
         }
 
-        @Override
         public final int count() {
             return propertyValuePairs.size();
         }
 
-        @Override
         public final Iterator<EntityProperty<?>> iterator() {
             final List<EntityProperty<?>> properties = new ArrayList<EntityProperty<?>>(
                     count());
@@ -115,7 +109,6 @@ public final class EntityFactory {
             return properties.iterator();
         }
 
-        @Override
         public final Map<EntityProperty<?>, Object> toMap() {
             final Map<EntityProperty<?>, Object> result = new HashMap<EntityProperty<?>, Object>(
                     count());
@@ -142,7 +135,6 @@ public final class EntityFactory {
             return sb.toString();
         }
 
-        @Override
         public Set<EntityProperty<?>> toPropertySet() {
             final Set<EntityProperty<?>> result = new HashSet<EntityProperty<?>>(
                     count());
@@ -152,7 +144,6 @@ public final class EntityFactory {
             return unmodifiableSet(result);
         }
 
-        @Override
         public abstract Entity delete(EntityProperty<?> property);
     }
 

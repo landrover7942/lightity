@@ -33,13 +33,13 @@ public interface EntityProperty<T> {
      * Use return values of {@link #getName()} and {@link #getType()}.
      * {@inheritDoc}
      */
-    @Override
+
     boolean equals(Object obj);
 
     /**
      * Use return values of {@link #getName()} and {@link #getType()}.
      * {@inheritDoc}
      */
-    @Override
+
     int hashCode();
 }

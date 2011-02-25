@@ -16,12 +16,10 @@ public abstract class ForwardingEntityProperty<T> implements EntityProperty<T> {
         super();
     }
 
-    @Override
     public String getName() {
         return delegate().getName();
     }
 
-    @Override
     public Class<T> getType() {
         return delegate().getType();
     }

@@ -45,7 +45,7 @@ public class EntityListTest {
     public void each() {
         final List<Entity> pickup = new ArrayList<Entity>();
         list.each(new Each() {
-            @Override
+
             public boolean call(final int index, final Entity entity) {
                 if (index % 2 == 0) {
                     pickup.add(entity);
@@ -66,7 +66,7 @@ public class EntityListTest {
     @Test
     public void filter() {
         final EntityList filter = list.filter(new Filter() {
-            @Override
+
             public boolean apply(final Entity entity) {
                 return (entity.get(Person.AGE) == null);
             }

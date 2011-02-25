@@ -14,7 +14,6 @@ final class GreaterThanFilter<T extends Comparable<T>> extends SimpleFilter<T> {
         this.equalOperator = new EqualFilter<T>(property, operand);
     }
 
-    @Override
     public boolean apply(final Entity entity) {
         if (equalOperator.apply(entity)) {
             return false;

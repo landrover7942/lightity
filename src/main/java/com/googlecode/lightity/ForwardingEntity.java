@@ -16,33 +16,27 @@ public abstract class ForwardingEntity implements Entity {
         super();
     }
 
-    @Override
     public Iterator<EntityProperty<?>> iterator() {
         return delegate().iterator();
     }
 
-    @Override
     public <T> T get(final EntityProperty<T> property)
             throws NoSuchEntityPropertyException {
         return delegate().get(property);
     }
 
-    @Override
     public <T> Entity set(final EntityProperty<T> property, final T value) {
         return delegate().set(property, value);
     }
 
-    @Override
     public void remove(final EntityProperty<?> property) {
         delegate().remove(property);
     }
 
-    @Override
     public boolean exists(final EntityProperty<?> property) {
         return delegate().exists(property);
     }
 
-    @Override
     public int count() {
         return delegate().count();
     }
