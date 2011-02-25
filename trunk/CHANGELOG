@@ -9,3 +9,4 @@ Release 0.5 (2011-03-xx)
 * Add delete, toMap and toPropertySet methods to Entity.
 * Add ForwardingEntity and ForwardingEntityProperty classes.
 * Add mutable and immutable methods to EntityFactory.
+* Minimum JDK version 1.6 => 1.5
