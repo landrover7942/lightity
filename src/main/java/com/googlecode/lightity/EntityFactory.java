@@ -1,10 +1,13 @@
 package com.googlecode.lightity;
 
+import static java.util.Collections.unmodifiableMap;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Factory of {@link Entity}.
@@ -41,7 +44,7 @@ public final class EntityFactory {
             return property.getName();
         }
 
-        private final Map<String, PropertyValuePair> propertyValuePairs = new LinkedHashMap<String, EntityFactory.PropertyValuePair>();
+        private final Map<String, PropertyValuePair> propertyValuePairs = new HashMap<String, EntityFactory.PropertyValuePair>();
 
         @Override
         public <T> Entity set(final EntityProperty<T> property, final T value) {
@@ -95,6 +98,17 @@ public final class EntityFactory {
         }
 
         @Override
+        public Map<String, Object> toMap() {
+            final Map<String, Object> result = new HashMap<String, Object>(
+                    count());
+            for (final Entry<String, PropertyValuePair> entry : propertyValuePairs
+                    .entrySet()) {
+                result.put(entry.getKey(), entry.getValue().value);
+            }
+            return unmodifiableMap(result);
+        }
+
+        @Override
         public String toString() {
             final StringBuilder sb = new StringBuilder();
             sb.append('{');
@@ -110,7 +124,6 @@ public final class EntityFactory {
             sb.append('}');
             return sb.toString();
         }
-
     }
 
     private EntityFactory() {
