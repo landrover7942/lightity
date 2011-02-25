@@ -1,22 +1,15 @@
 package com.googlecode.lightity.property;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.googlecode.lightity.EntityProperty;
 import com.googlecode.lightity.EntityPropertyFactory;
-import com.googlecode.lightity.Formattable;
 import com.googlecode.lightity.ForwardingEntityProperty;
-import com.googlecode.lightity.Parsable;
-import com.googlecode.lightity.Validatable;
 
 /**
  * A string property.
  * 
  * @author Koba, Masafumi
  */
-public final class StringProperty extends ForwardingEntityProperty<String>
-        implements Parsable<String>, Formattable<String>, Validatable<String> {
+public final class StringProperty extends ForwardingEntityProperty<String> {
 
     public static StringProperty of(final String name) {
         return new StringProperty(name);
@@ -26,21 +19,6 @@ public final class StringProperty extends ForwardingEntityProperty<String>
 
     private StringProperty(final String name) {
         delegate = EntityPropertyFactory.create(name, String.class);
-    }
-
-    @Override
-    public String format(final String source) {
-        return source;
-    }
-
-    @Override
-    public String parse(final CharSequence source) {
-        return (source == null) ? null : source.toString();
-    }
-
-    @Override
-    public List<String> validate(final String target) {
-        return Collections.emptyList();
     }
 
     @Override
