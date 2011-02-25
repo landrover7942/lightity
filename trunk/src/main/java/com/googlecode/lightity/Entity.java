@@ -1,5 +1,7 @@
 package com.googlecode.lightity;
 
+import java.util.Map;
+
 /**
  * Entity.
  * 
@@ -67,4 +69,11 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * @return the number of properties
      */
     int count();
+
+    /**
+     * Converts to a map object.
+     * 
+     * @return an immutable map view
+     */
+    Map<String, Object> toMap();
 }

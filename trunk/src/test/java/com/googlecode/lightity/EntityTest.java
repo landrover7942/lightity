@@ -5,6 +5,9 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,9 +68,25 @@ public class EntityTest {
                 notNullValue());
     }
 
+    @SuppressWarnings("boxing")
+    @Test
+    public void whenEntityIsConvertedToMap() throws Exception {
+        assertThat(person.toMap().size(), is(0));
+        assertThat(person.set(Person.NAME, "Tom").set(Person.AGE, 20).toMap(),
+                isMap(Person.NAME, "Tom", Person.AGE, 20));
+    }
+
     private static Matcher<Iterable<EntityProperty<?>>> has(
-            EntityProperty<?>... properties) {
+            final EntityProperty<?>... properties) {
         return JUnitMatchers.<EntityProperty<?>> hasItems(properties);
+    }
+
+    private static Matcher<Map<String, Object>> isMap(EntityProperty<?> p1,
+            Object v1, EntityProperty<?> p2, Object v2) {
+        final Map<String, Object> map = new HashMap<String, Object>(2);
+        map.put(p1.getName(), v1);
+        map.put(p2.getName(), v2);
+        return is(map);
     }
 
 }
