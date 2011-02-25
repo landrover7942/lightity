@@ -125,7 +125,7 @@ public class FilterTest {
         assertThat(filtered.get(1).get(Person.NAME), is("c"));
     }
 
-    private void filter(Filter filter) {
+    private void filter(final Filter filter) {
         System.out.println(filter);
         filtered = persons.filter(filter);
     }
