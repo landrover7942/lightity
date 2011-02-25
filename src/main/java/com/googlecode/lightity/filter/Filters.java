@@ -12,6 +12,7 @@ import com.googlecode.lightity.EntityProperty;
  * 
  * @author Koba, Masafumi
  */
+@Deprecated
 public final class Filters {
 
     /**

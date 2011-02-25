@@ -11,6 +11,7 @@ import java.util.ListIterator;
  * 
  * @author Koba, Masafumi
  */
+@Deprecated
 public final class EntityListFactory {
 
     /**
