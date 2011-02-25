@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Export-Package: com.googlecode.lightity,com.googlecode.lightity.filter
+ ;uses:="com.googlecode.lightity",com.googlecode.lightity.property;use
+ s:="com.googlecode.lightity"
+Built-By: koba
+Tool: Bnd-1.15.0
+Bundle-Name: Lightity
+Created-By: Apache Maven Bundle Plugin
+Bundle-Version: 0.5.0.alpha-4-SNAPSHOT
+Build-Jdk: 1.6.0_20
+Bnd-LastModified: 1298631166716
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: Light, simple entity for Java
+Bundle-SymbolicName: com.googlecode.lightity
+
