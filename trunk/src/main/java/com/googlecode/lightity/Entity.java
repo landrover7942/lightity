@@ -38,8 +38,19 @@ public interface Entity extends Iterable<EntityProperty<?>> {
      * 
      * @param property
      *            a property to be removed
+     * @deprecated use {@link #delete(EntityProperty)}
      */
+    @Deprecated
     void remove(EntityProperty<?> property);
+
+    /**
+     * Deletes the property.
+     * 
+     * @param property
+     *            a property to be deleted
+     * @return an entity in which the property has been deleted
+     */
+    Entity delete(EntityProperty<?> property);
 
     /**
      * Returns whether the property exists.
