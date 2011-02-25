@@ -1,0 +1,2 @@
+# when release, must specify the system property 'releaseVersion'
+mvn release:prepare -DreleaseVersion=<...>
