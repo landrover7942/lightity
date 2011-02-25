@@ -108,6 +108,11 @@
           <artifactId>maven-antrun-plugin</artifactId>
           <version>1.6</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.4</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -215,6 +220,22 @@
                 <configuration>
                   <reportOutputDirectory>${basedir}</reportOutputDirectory>
                   <destDir>javadoc</destDir>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>checkin</goal>
+                </goals>
+                <configuration>
+                  <basedir>${basedir}/javadoc</basedir>
+                  <message>Update javadoc for version ${project.version}.</message>
                 </configuration>
               </execution>
             </executions>
