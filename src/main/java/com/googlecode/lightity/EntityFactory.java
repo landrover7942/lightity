@@ -69,6 +69,12 @@ public final class EntityFactory {
         }
 
         @Override
+        public Entity delete(final EntityProperty<?> property) {
+            propertyValuePairs.remove(getKey(property));
+            return this;
+        }
+
+        @Override
         public boolean exists(final EntityProperty<?> property) {
             return propertyValuePairs.containsKey(getKey(property));
         }
