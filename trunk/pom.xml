@@ -66,7 +66,7 @@
           <configuration>
             <goals>install</goals>
             <mavenExecutorId>forked-path</mavenExecutorId>
-            <arguments>-Dgpg.skip=true</arguments>
+            <arguments>-Dgpg.skip=true -DreleaseVersion=${releaseVersion}</arguments>
           </configuration>
         </plugin>
         <plugin>
