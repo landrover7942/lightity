@@ -1,8 +1,9 @@
 package com.googlecode.lightity.property;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,18 +61,17 @@ public class StringPropertyTest {
     @SuppressWarnings("boxing")
     @Test
     public void test() throws Exception {
-        assertThat(name.getName(), equalTo("name"));
+        assertThat(name.getName(), is("name"));
         assertThat(name.getType(), equalTo(String.class));
-        assertThat(name.format(""), equalTo(""));
-        assertThat(name.format("a"), equalTo("a"));
+        assertThat(name.format(""), is(""));
+        assertThat(name.format("a"), is("a"));
         assertThat(name.format(null), nullValue());
-        assertThat(name.parse(""), equalTo(""));
-        assertThat(name.parse("a"), equalTo("a"));
+        assertThat(name.parse(""), is(""));
+        assertThat(name.parse("a"), is("a"));
         assertThat(name.parse(null), nullValue());
-        assertThat(name.parse(new StringBuilder("a")), equalTo("a"));
-        assertThat(name.equals(StringProperty.of("name")), equalTo(true));
-        assertThat(name.hashCode(), equalTo(StringProperty.of("name")
-                .hashCode()));
+        assertThat(name.parse(new StringBuilder("a")), is("a"));
+        assertThat(name.equals(StringProperty.of("name")), is(true));
+        assertThat(name.hashCode(), is(StringProperty.of("name").hashCode()));
     }
 
 }

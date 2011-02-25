@@ -1,7 +1,8 @@
 package com.googlecode.lightity.property;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,18 +61,18 @@ public class NumberPropertyTest {
     @SuppressWarnings("boxing")
     @Test
     public void test() throws Exception {
-        assertThat(num.getName(), equalTo("num"));
+        assertThat(num.getName(), is("num"));
         assertThat(num.getType(), equalTo(Integer.class));
-        assertThat(num.format(10), equalTo("10"));
-        assertThat(num.format(0), equalTo("0"));
-        assertThat(num.format(-1), equalTo("-1"));
-        assertThat(num.parse("0"), equalTo(0));
-        assertThat(num.parse("0.1"), equalTo(0));
-        assertThat(num.parse("-1"), equalTo(-1));
+        assertThat(num.format(10), is("10"));
+        assertThat(num.format(0), is("0"));
+        assertThat(num.format(-1), is("-1"));
+        assertThat(num.parse("0"), is(0));
+        assertThat(num.parse("0.1"), is(0));
+        assertThat(num.parse("-1"), is(-1));
         assertThat(num.equals(NumberProperty.of("num", Integer.class)),
-                equalTo(true));
-        assertThat(num.hashCode(),
-                equalTo(NumberProperty.of("num", Integer.class).hashCode()));
+                is(true));
+        assertThat(num.hashCode(), is(NumberProperty.of("num", Integer.class)
+                .hashCode()));
     }
 
 }
