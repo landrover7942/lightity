@@ -5,13 +5,18 @@ import java.util.List;
 /**
  * List of {@link Entity}.
  * 
+ * @deprecated use other library such as <a
+ *             href="http://code.google.com/p/google-collections/">Google
+ *             Collections</a>
  * @author Koba, Masafumi
  */
+@Deprecated
 public interface EntityList extends List<Entity> {
 
     /**
      * Callback interface for {@link EntityList#each(Each)}.
      */
+    @Deprecated
     interface Each {
 
         /**
@@ -29,6 +34,7 @@ public interface EntityList extends List<Entity> {
     /**
      * Callback interface for {@link EntityList#filter(Filter)}.
      */
+    @Deprecated
     interface Filter {
 
         /**
