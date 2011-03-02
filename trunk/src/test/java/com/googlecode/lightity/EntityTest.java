@@ -158,6 +158,15 @@ public class EntityTest {
         immutable.toPropertySet().add(Person.NAME);
     }
 
+    @SuppressWarnings("boxing")
+    @Test(expected = RuntimeException.class)
+    public void whenNameIsSameButTypeIsDifferent() throws Exception {
+        final EntityProperty<Integer> age = Person.AGE;
+        final EntityProperty<Long> age2 = EntityPropertyFactory.create(
+                age.getName(), Long.class);
+        mutable.set(age, 10).set(age2, 20L);
+    }
+
     private static Matcher<Iterable<EntityProperty<?>>> has(
             final EntityProperty<?>... properties) {
         return JUnitMatchers.<EntityProperty<?>> hasItems(properties);
