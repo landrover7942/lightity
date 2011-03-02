@@ -62,6 +62,7 @@ public final class EntityFactory {
     }
 
     private static abstract class AbstractEntity implements Entity {
+
         static String getKey(final EntityProperty<?> property) {
             return property.getName();
         }
@@ -75,6 +76,16 @@ public final class EntityFactory {
         public <T> Entity set(final EntityProperty<T> property, final T value) {
             if (property == null) {
                 throw new NullPointerException("required property");
+            }
+            final String key = getKey(property);
+            if (propertyValuePairs.containsKey(key)) {
+                final EntityProperty<?> originProperty = propertyValuePairs
+                        .get(key).property;
+                if (!property.equals(originProperty)) {
+                    throw new IllegalArgumentException(String.format(
+                            "name is same but type is different: <%s> => <%s>",
+                            property, originProperty));
+                }
             }
             return this;
         }
