@@ -86,7 +86,7 @@
             <mavenExecutorId>forked-path</mavenExecutorId>
             <goals>assembly:assembly install</goals>
             <preparationGoals>clean verify</preparationGoals>
-            <arguments>-Dgpg.skip=true -DreleaseVersion=${releaseVersion}</arguments>
+            <arguments>-Dgpg.skip=true -DreleaseVersion=${releaseVersion} -DreleaseDryRun=${dryRun}</arguments>
           </configuration>
         </plugin>
         <plugin>
@@ -279,7 +279,7 @@
                 <configuration>
                   <basedir>${basedir}/javadoc</basedir>
                   <message>Update javadoc for version ${releaseVersion}.</message>
-                  <skip>${dryRun}</skip>
+                  <skip>${releaseDryRun}</skip>
                 </configuration>
               </execution>
             </executions>
