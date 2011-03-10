@@ -256,8 +256,8 @@
                 <configuration>
                   <reportOutputDirectory>${basedir}</reportOutputDirectory>
                   <destDir>javadoc</destDir>
-                  <doctitle>${project.name} ${version} API</doctitle>
-                  <windowtitle>${project.name} ${version} API</windowtitle>
+                  <doctitle>${project.name} ${apiVersion} API</doctitle>
+                  <windowtitle>${project.name} ${apiVersion} API</windowtitle>
                 </configuration>
               </execution>
             </executions>
@@ -275,7 +275,7 @@
                 <configuration>
                   <basedir>${basedir}/javadoc</basedir>
                   <includes>**/*</includes>
-                  <message>Update javadoc for version ${version}.</message>
+                  <message>Update javadoc for version ${apiVersion}.</message>
                 </configuration>
               </execution>
             </executions>
