@@ -2,7 +2,7 @@
 mvn scm:checkout -DscmVersionType=tag -DscmVersion=<...>
 
 # create bundle for uploading remote repository
-mvn repository:bundle-create -DperformRelease
+mvn clean repository:bundle-create -DperformRelease
 
 # create archive package file
 mvn javadoc:javadoc assembly:assembly -DperformRelease -Dgpg.skip
