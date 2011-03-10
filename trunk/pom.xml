@@ -84,7 +84,7 @@
           <version>2.1</version>
           <configuration>
             <mavenExecutorId>forked-path</mavenExecutorId>
-            <goals>assembly:assembly install</goals>
+            <goals>install</goals>
             <preparationGoals>clean verify</preparationGoals>
             <arguments>-Dgpg.skip=true</arguments>
           </configuration>
