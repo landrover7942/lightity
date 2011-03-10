@@ -1,6 +1,11 @@
-# create bundle for uploading remote repository
+# checkout specific version
 mvn scm:checkout -DscmVersionType=tag -DscmVersion=<...>
-mvn --file target/checkout/pom.xml repository:bundle-create -DperformRelease
+
+# create bundle for uploading remote repository
+mvn repository:bundle-create -DperformRelease
+
+# create bundle for uploading remote repository
+mvn assembly:assembly -DperformRelease -Dgpg.skip
 
 # create and commit javadoc by specific version
 mvn compile -P release-javadoc -DapiVersion=<...>
