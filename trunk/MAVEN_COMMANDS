@@ -5,7 +5,7 @@ mvn scm:checkout -DscmVersionType=tag -DscmVersion=<...>
 mvn repository:bundle-create -DperformRelease
 
 # create bundle for uploading remote repository
-mvn assembly:assembly -DperformRelease -Dgpg.skip
+mvn javadoc:javadoc assembly:assembly -DperformRelease -Dgpg.skip
 
 # create and commit javadoc by specific version
 mvn compile -P release-javadoc -DapiVersion=<...>
