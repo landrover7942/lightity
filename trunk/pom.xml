@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.lightity</groupId>
   <artifactId>lightity</artifactId>
-  <version>0.6-SNAPSHOT</version>
+  <version>0.5-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Lightity</name>
   <description>Light, simple entity for Java</description>
@@ -83,8 +83,9 @@
           <artifactId>maven-release-plugin</artifactId>
           <version>2.1</version>
           <configuration>
-            <goals>javadoc:javadoc assembly:assembly install</goals>
             <mavenExecutorId>forked-path</mavenExecutorId>
+            <goals>assembly:assembly install</goals>
+            <preparationGoals>clean verify javadoc:javadoc</preparationGoals>
             <arguments>-Dgpg.skip=true -DreleaseVersion=${releaseVersion}</arguments>
           </configuration>
         </plugin>
