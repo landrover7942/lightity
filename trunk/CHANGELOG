@@ -1,8 +1,8 @@
 ==========
-Change log
+Change Log
 ==========
 
-Release 0.5 (2011-03-xx)
+Release 0.5 (2011-03-15)
 ------------------------
 * Add some implementations of EntityProperty.
 * EntityList, EntityListFactory and filter package is deprecated.
