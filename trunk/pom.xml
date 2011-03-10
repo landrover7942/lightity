@@ -86,7 +86,7 @@
             <mavenExecutorId>forked-path</mavenExecutorId>
             <goals>assembly:assembly install</goals>
             <preparationGoals>clean verify</preparationGoals>
-            <arguments>-Dgpg.skip=true -DreleaseVersion=${releaseVersion} -DreleaseDryRun=${dryRun}</arguments>
+            <arguments>-Dgpg.skip=true</arguments>
           </configuration>
         </plugin>
         <plugin>
@@ -222,11 +222,6 @@
     </profile>
     <profile>
       <id>release-javadoc</id>
-      <activation>
-        <property>
-          <name>releaseVersion</name>
-        </property>
-      </activation>
       <build>
         <plugins>
           <plugin>
@@ -234,7 +229,7 @@
             <artifactId>maven-antrun-plugin</artifactId>
             <executions>
               <execution>
-                <phase>verify</phase>
+                <phase>compile</phase>
                 <goals>
                   <goal>run</goal>
                 </goals>
@@ -254,15 +249,15 @@
             <artifactId>maven-javadoc-plugin</artifactId>
             <executions>
               <execution>
-                <phase>verify</phase>
+                <phase>compile</phase>
                 <goals>
                   <goal>javadoc</goal>
                 </goals>
                 <configuration>
                   <reportOutputDirectory>${basedir}</reportOutputDirectory>
                   <destDir>javadoc</destDir>
-                  <doctitle>${project.name} ${releaseVersion} API</doctitle>
-                  <windowtitle>${project.name} ${releaseVersion} API</windowtitle>
+                  <doctitle>${project.name} ${version} API</doctitle>
+                  <windowtitle>${project.name} ${version} API</windowtitle>
                 </configuration>
               </execution>
             </executions>
@@ -272,14 +267,15 @@
             <artifactId>maven-scm-plugin</artifactId>
             <executions>
               <execution>
-                <phase>verify</phase>
+                <phase>compile</phase>
                 <goals>
+                  <goal>add</goal>
                   <goal>checkin</goal>
                 </goals>
                 <configuration>
                   <basedir>${basedir}/javadoc</basedir>
-                  <message>Update javadoc for version ${releaseVersion}.</message>
-                  <skip>${releaseDryRun}</skip>
+                  <includes>**/*</includes>
+                  <message>Update javadoc for version ${version}.</message>
                 </configuration>
               </execution>
             </executions>
